@@ -1,5 +1,7 @@
 ### Rezo App
 
+[flow chart](https://www.lucidchart.com/documents/edit/8e01f617-2b57-4112-be6f-342c6eba27f0)
+
 Key functionality:
 
 User can book an event. 
@@ -35,4 +37,10 @@ Admin can set event space occupancy.
 Admin can add event space menu.
 Admin can add event space menu details.
 Admin can add event space menu cost.
-Admin can
+Admin can view booked events at event space.
+Admin can view profiles of users with booked events.
+
+
+
+
+
