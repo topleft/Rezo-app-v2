@@ -13,6 +13,7 @@ var minifyCSS = require('gulp-minify-css');
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
 var runSequence = require('run-sequence');
+var mocha = require('gulp-mocha');
 
 
 /**
@@ -31,6 +32,9 @@ var paths = {
   ],
   distServer: [
     './dist/server/bin/www'
+  ],
+  test: [
+    'test/*.js'
   ]
 };
 
@@ -125,6 +129,10 @@ gulp.task('connectDist', function (cb) {
   });
 });
 
+gulp.task('test', function(){
+  gulp.src(paths.test, {read: false})
+    .pipe(mocha({}));
+})
 
 // *** default task *** //
 gulp.task('default', ['browser-sync', 'watch'], function(){});
