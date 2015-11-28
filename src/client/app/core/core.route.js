@@ -1,20 +1,20 @@
-angular.module('routes', ['app.core']);
+angular.module('routes', ['ui.router']);
 
-// angular.module('routes').config(['$routeProvider', function($routeProvider){
-//   $routeProvider
-//   .when('/',{
-//     templateUrl: '../views/index.html',
-//     access: {restricted: true}
-//   })
-//   .when('/login', {
-//     templateUrl: '../auth/login.html',
-//     controller: 'loginController',
-//     access: {restricted: false}
-//   })
-//   .when('/register', {
-//     templateUrl: '../auth/register.html',
-//     controller: 'registerController',
-//     access: {restricted: false}
-//   });
+angular.module('routes').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+  
+  console.log("route");
 
-// }]);
+  $stateProvider
+  .state('profile',{
+    url: '/profile',
+    templateUrl: './src/client/app/features/profile/profile.html',
+    controller: 'profileController',
+    access: {restricted: false}
+  })
+  .state('dashboard',{
+    url: '/dashboard',
+    templateUrl: './src/client/app/features/dashboard/dashboard.html',
+    controller: 'dashboardController',
+    access: {restricted: false}
+  }); 
+}]);

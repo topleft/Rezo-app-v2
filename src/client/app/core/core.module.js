@@ -1,8 +1,12 @@
 (function () {
     'use strict';
+    console.log('core module')
 
     angular
         .module('app.core', [
-            'ngMaterial'
+            'ngAnimate',
+            'ngMaterial',
+            'ui.router',
+            'routes'
         ]);
 })();

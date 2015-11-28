@@ -1,8 +1,14 @@
 (function () {
     'use strict';
 
-    angular.module('app', [
-        'ngMaterial'
-    ]);
+console.log('app module')
+
+    angular.module('app', [ 
+      'app.core',
+      'app.features',
+      'app.layout'
+    ]).run(function($state){})
+
+
 
 })();

@@ -1,0 +1,21 @@
+    <div ng-controller='layoutController'>
+
+
+      <md-toolbar>
+        <h1 layout="center"><a href="#">Toolbar</a></h1>  
+      </md-toolbar>
+      
+      <section layout="row">
+        <md-sidenav flex class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="true" id="sidenav">
+          <md-list flex>
+            <md-list-item><a href="#/dashboard"><md-button>Dashboard</md-button></a></md-list-item>
+            <md-list-item><a href="#/profile"><md-button>Profile</md-button></a></md-list-item>
+            <md-list-item><a href="/menus"><md-button>Calendar</md-button></a></md-list-item>
+          </md-list>
+        </md-sidenav>
+
+        <md-content flex layout-margin>
+          <div ui-view></div>
+        </md-content>
+      </section>
+    </div>

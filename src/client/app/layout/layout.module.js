@@ -1,10 +1,9 @@
 (function () {
     'use strict';
 
+console.log('layout module');
+
     angular
         .module('app.layout', [
-          'app.core',
-          'app.navbar',
-          'app.sidebar'
-          ]);
+        ]);
 })();
