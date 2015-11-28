@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="./src/client/css/main.css"/>
+  </head>
+
+  <body>
+    <div ng-include="'src/client/app/layout/layout.html'"></div> 
+  </body>
+    
+    <!-- bower files -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <!-- angular files -->
+    <script src="src/client/app/app.module.js"></script>
+    <script src="src/client/app/app.controller.js"></script>
+    <script src="src/client/app/core/core.module.js"></script>
+    <script src="src/client/app/core/core.route.js"></script>
+    <script src="src/client/app/layout/layout.module.js"></script>
+    <script src="src/client/app/layout/layout.controller.js"></script>
+    <script src="src/client/app/features/features.module.js"></script>
+    <script src="src/client/app/features/dashboard/dashboard.module.js"></script>
+    <script src="src/client/app/features/dashboard/dashboard.controller.js"></script>
+    <script src="src/client/app/features/profile/profile.module.js"></script>
+    <script src="src/client/app/features/profile/profile.controller.js"></script>
+
+
+  </body>
+</html>
