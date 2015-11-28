@@ -2,14 +2,16 @@
 <html ng-app='app'>
   <head>
     <meta charset="utf-8">
-    <title>{{ title }}</title>
+    <title>MEAP Boiler</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="./src/client/css/main.css"/>
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
-    <link rel="stylesheet" href="./src/client/css/main.css"/>
   </head>
 
   <body>
-    <div ng-include="'src/client/app/layout/layout.html'"></div> 
+    <div ng-include="'src/client/app/layout/layout.html'" layout-fill></div> 
   </body>
     
     <!-- bower files -->
@@ -20,19 +22,23 @@
     <script src="/bower_components/angular-material/angular-material.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/moment/moment.js"></script>
+    
     <!-- angular files -->
     <script src="src/client/app/app.module.js"></script>
-    <script src="src/client/app/app.controller.js"></script>
     <script src="src/client/app/core/core.module.js"></script>
     <script src="src/client/app/core/core.route.js"></script>
     <script src="src/client/app/layout/layout.module.js"></script>
-    <script src="src/client/app/layout/layout.controller.js"></script>
+    <script src="src/client/app/layout/layout.controller.js"></script>    
+    <!-- *features -->
     <script src="src/client/app/features/features.module.js"></script>
     <script src="src/client/app/features/dashboard/dashboard.module.js"></script>
     <script src="src/client/app/features/dashboard/dashboard.controller.js"></script>
     <script src="src/client/app/features/profile/profile.module.js"></script>
     <script src="src/client/app/features/profile/profile.controller.js"></script>
-
+    <script src="src/client/app/features/home/home.module.js"></script>
+    <script src="src/client/app/features/home/home.controller.js"></script>
+    <!-- *components -->
+    <script src="src/client/app/components/components.module.js"></script>
 
   </body>
 </html>

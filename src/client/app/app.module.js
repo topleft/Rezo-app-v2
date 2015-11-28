@@ -7,7 +7,7 @@ console.log('app module')
       'app.core',
       'app.features',
       'app.layout'
-    ]).run(function($state){})
+    ]).run(function($state){});
 
 
 

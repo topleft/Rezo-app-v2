@@ -1,20 +1,52 @@
-    <div ng-controller='layoutController'>
+    <div ng-controller='layoutController' layout="column" class="full-height">
 
 
       <md-toolbar>
-        <h1 layout="center"><a href="#">Toolbar</a></h1>  
+        <div class="md-toolbar-tools">
+          <md-button ng-click="close()" class="md-icon-button" hide-gt-md>
+            <i class="material-icons" >menu</i>
+          </md-button>
+          <h2 layout-padding><a href="#/" style='text-decoration: none'>MEAP Boiler</a></h2>
+          <span flex></span>
+          <md-button class="md-raised md-accent">Login</md-button>
+          <md-button class="md-raised md-accent md-hue-1">Logout</md-button>
+        </div> 
       </md-toolbar>
+
       
-      <section layout="row">
-        <md-sidenav flex class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="true" id="sidenav">
-          <md-list flex>
-            <md-list-item><a href="#/dashboard"><md-button>Dashboard</md-button></a></md-list-item>
-            <md-list-item><a href="#/profile"><md-button>Profile</md-button></a></md-list-item>
-            <md-list-item><a href="/menus"><md-button>Calendar</md-button></a></md-list-item>
+      <section layout="row" flex layout-padding>
+        
+        <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-md')" md-component-id="left">
+          
+          <md-toolbar layout-align="center center">
+            <div class="md-toolbar-tools">          
+              <h4>  
+                <span>Sidebar</span>
+              </h4>  
+              <span flex></span>
+              <md-button ng-click="close()" class="md-icon-button" hide-gt-md>
+                <i class="material-icons">reply</i>
+              </md-button>
+            </div>
+          </md-toolbar>
+        
+          <md-list>
+            <md-list-item class="md-clickable" >
+             <p md-ink-ripple ui-sref="dashboard">Dashboard</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-clickable" >
+             <p md-ink-ripple ui-sref="profile">Profile</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-clickable" >
+             <p md-ink-ripple ui-sref="calendar">Calendar</p>
+            </md-list-item>
+            
           </md-list>
         </md-sidenav>
-
-        <md-content flex layout-margin>
+        
+        <md-content layout-margin flex>
           <div ui-view></div>
         </md-content>
       </section>

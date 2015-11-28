@@ -5,6 +5,12 @@ angular.module('routes').config(['$stateProvider', '$urlRouterProvider', functio
   console.log("route");
 
   $stateProvider
+  .state('home',{
+    url: '/',
+    templateUrl: './src/client/app/features/home/home.html',
+    controller: 'homeController',
+    access: {restricted: false}
+  })
   .state('profile',{
     url: '/profile',
     templateUrl: './src/client/app/features/profile/profile.html',
