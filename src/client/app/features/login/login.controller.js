@@ -16,11 +16,11 @@
             $window.localStorage.currentUser = JSON.stringify(response.data.user);
             $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
             console.log(response);
-            $location.path('/dashboard');
+            $location.path('/');
           })
-        .catch(function(response) {
-          console.log(response);
-        });
-      };
+          .catch(function(response) {
+            console.log(response);
+          });
+        };
   }
 })();

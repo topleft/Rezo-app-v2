@@ -20,7 +20,6 @@ angular.module('routes').config(['$stateProvider', '$urlRouterProvider', '$authP
     url: '/',
     templateUrl: './src/client/app/features/home/home.html',
     controller: 'homeController',
-    resolve: {skipIfLoggedIn: skipIfLoggedIn}
   })
   .state('profile',{
     url: '/profile',
@@ -35,7 +34,7 @@ angular.module('routes').config(['$stateProvider', '$urlRouterProvider', '$authP
     resolve: {loginRequired: loginRequired}
   }); 
 
-  $urlRouterProvider.otherwise('/step1');
+  $urlRouterProvider.otherwise('/');
 
 
   function skipIfLoggedIn($q, $auth) {

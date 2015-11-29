@@ -1,20 +1,20 @@
 // process.env.NODE_ENV = 'test';
 
-var server = require("../server/app");
-var mocha = require('mocha');
-var chai = require('chai');
-var chaiHttp = require('chai-http');
-var request = require('request');
-var cheerio = require('cheerio');
-var should = chai.should();
-chai.use(chaiHttp);
+// var server = require("../server/app");
+// var mocha = require('mocha');
+// var chai = require('chai');
+// var chaiHttp = require('chai-http');
+// var request = require('request');
+// var cheerio = require('cheerio');
+// var should = chai.should();
+// chai.use(chaiHttp);
 
-var models = require('../server/models/index');
+// var models = require('../server/models/index');
 
-console.log('\n');
-console.log('=====================================================');
-console.log('=================     new test   ====================');
-console.log('=====================================================');
+// console.log('\n');
+// console.log('=====================================================');
+// console.log('=================     new test   ====================');
+// console.log('=====================================================');
 
 
 
