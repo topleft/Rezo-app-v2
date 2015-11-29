@@ -1,7 +1,7 @@
 var moment = require('moment');
 var jwt = require('jwt-simple');
-var config = require('../_config');
-var User = require('../database').User;
+var config = require('../../../_config');
+// var User = require('../database').User;
 
 
 // *** login required *** //
@@ -42,7 +42,7 @@ function createToken(user) {
   var payload = {
     exp: moment().add(14, 'days').unix(),
     iat: moment().unix(),
-    sub: user._id
+    sub: user.id
   };
   return jwt.encode(payload, config.TOKEN_SECRET);
 }

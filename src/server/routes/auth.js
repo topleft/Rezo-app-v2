@@ -3,9 +3,9 @@ var router = express.Router();
 var request = require('request');
 var qs = require('querystring');
 var models = require('../models/index');
-var config = require('../_config');
+var config = require('../../../_config');
 var jwt = require('jwt-simple');
-var helper = require('../logic/auth');
+var helper = require('../logic/auth-logic');
 
 //**   google auth    **//
 router.post('/google', function(req, res) {
@@ -26,7 +26,6 @@ router.post('/google', function(req, res) {
 
    // Step 2. Retrieve profile information about the current user.
    request.get({ url: peopleApiUrl, headers: headers, json: true }, function(err, response, profile) {
-    console.log(profile, "profile");
       if (profile.error) {
         return res.status(500).send({message: profile.error.message});
       }
@@ -42,10 +41,11 @@ router.post('/google', function(req, res) {
           return res.status(409).send({ message: 'There is already a Google account that belongs to you' });
         }
         var token = req.headers.authorization.split(' ')[1];
+        console.log({token: token})
         var payload = jwt.decode(token, config.TOKEN_SECRET);
         models.User.find({
         where: {
-          id: payload.sub.id
+          id: payload.sub
         }
         }).then(function(user){
           if (!user) {
@@ -73,7 +73,7 @@ router.post('/google', function(req, res) {
       }).then(function(existingUser) {
         if (existingUser) {
           return res.send({
-            token: createToken(existingUser)
+            token: helper.createToken(existingUser)
           });
         }
         models.User.create({

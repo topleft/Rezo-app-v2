@@ -6,6 +6,7 @@
             'ngAnimate',
             'ngMaterial',
             'ui.router',
+            'satellizer',
             'routes'
         ]);
 
