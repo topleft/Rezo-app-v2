@@ -32,38 +32,37 @@ router.post('/google', function(req, res) {
      // Step 3a. Link user accounts.
       if (req.headers.authorization) {
       // adapt for postgres
-      models.User.find({
-        where: { 
-          googleProfileID: profile.sub
-        }
-      }).then(function (existingUser) {
-        if (existingUser) {
-          return res.status(409).send({ message: 'There is already a Google account that belongs to you' });
-        }
-        var token = req.headers.authorization.split(' ')[1];
-        console.log({token: token})
-        var payload = jwt.decode(token, config.TOKEN_SECRET);
         models.User.find({
-        where: {
-          id: payload.sub
-        }
-        }).then(function(user){
-          if (!user) {
-            return res.status(400).send({ message: 'User not found' });
+          where: { 
+            googleProfileID: profile.sub
           }
-          user.updateAttributes({
-            username: profile.name,
-            googleProfileID: profile.sub,
-            email: profile.email
-          }).then(function (user) {
-            var token = helper.createToken(user);
-            res.send({
-              token: token,
-              user: user           
+        }).then(function (existingUser) {
+          if (existingUser) {
+            return res.status(409).send({ message: 'There is already a Google account that belongs to you' });
+          }
+          var token = req.headers.authorization.split(' ')[1];
+          var payload = jwt.decode(token, config.TOKEN_SECRET);
+          models.User.find({
+          where: {
+            id: payload.sub
+          }
+          }).then(function(user){
+            if (!user) {
+              return res.status(400).send({ message: 'User not found' });
+            }
+            user.updateAttributes({
+              username: profile.name,
+              googleProfileID: profile.sub,
+              email: profile.email
+            }).then(function (user) {
+              var token = helper.createToken(user);
+              res.send({
+                token: token,
+                user: user           
+              });
             });
           });
-        });
-      });
+        }).catch(function(err){console.log(err)});
      } else {
        // Step 3b. Create a new user account or return an existing one.
       models.User.find({
@@ -73,7 +72,8 @@ router.post('/google', function(req, res) {
       }).then(function(existingUser) {
         if (existingUser) {
           return res.send({
-            token: helper.createToken(existingUser)
+            token: helper.createToken(existingUser),
+            user: existingUser
           });
         }
         models.User.create({

@@ -14,24 +14,47 @@ angular.module('routes').config(['$stateProvider', '$urlRouterProvider', '$authP
     url: '/login',
     templateUrl: './src/client/app/features/login/login.html',
     controller: 'loginController',
-    access: {restricted: false}
+    resolve: {skipIfLoggedIn: skipIfLoggedIn}
   })
   .state('home',{
     url: '/',
     templateUrl: './src/client/app/features/home/home.html',
     controller: 'homeController',
-    access: {restricted: false}
+    resolve: {skipIfLoggedIn: skipIfLoggedIn}
   })
   .state('profile',{
     url: '/profile',
     templateUrl: './src/client/app/features/profile/profile.html',
     controller: 'profileController',
-    access: {restricted: true}
+    resolve: {loginRequired: loginRequired}
   })
   .state('dashboard',{
     url: '/dashboard',
     templateUrl: './src/client/app/features/dashboard/dashboard.html',
     controller: 'dashboardController',
-    access: {restricted: true}
+    resolve: {loginRequired: loginRequired}
   }); 
+
+
+
+  function skipIfLoggedIn($q, $auth) {
+      var deferred = $q.defer();
+      if ($auth.isAuthenticated()) {
+        deferred.reject();
+      } else {
+        deferred.resolve();
+      }
+      return deferred.promise;
+    }
+
+  function loginRequired($q, $location, $auth) {
+    var deferred = $q.defer();
+    if ($auth.isAuthenticated()) {
+      deferred.resolve();
+    } else {
+      $location.path('/login');
+    }
+    return deferred.promise;
+  }
+
 }]);
