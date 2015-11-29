@@ -6,7 +6,8 @@
     angular.module('app.features', [
       'app.features.dashboard',
       'app.features.profile',
-      'app.features.home'
+      'app.features.home',
+      'app.features.login'
     ]);
 
 })();
