@@ -35,6 +35,7 @@ angular.module('routes').config(['$stateProvider', '$urlRouterProvider', '$authP
     resolve: {loginRequired: loginRequired}
   }); 
 
+  $urlRouterProvider.otherwise('/step1');
 
 
   function skipIfLoggedIn($q, $auth) {
