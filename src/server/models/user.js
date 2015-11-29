@@ -6,11 +6,6 @@ module.exports = function(sequelize, DataTypes) {
       required: true,
       allowNull: false
     },
-    admin: {
-      type: DataTypes.BOOLEAN,
-      required: true,
-      defaultValue: false
-    },
     email: {
       type: DataTypes.STRING,
       required: true,
@@ -18,6 +13,9 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isEmail: true
       } 
+    },
+    googleProfileID: {
+      type: DataTypes.STRING
     }
   }, {
     classMethods: {
