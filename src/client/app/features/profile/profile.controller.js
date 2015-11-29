@@ -9,7 +9,6 @@
     profileController.$inject = ['$scope'];
 
     function profileController ($scope) {
-      console.log('profile controller');
 
     }
 })();

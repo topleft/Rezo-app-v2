@@ -1,6 +1,5 @@
 (function () {
     'use strict';
-    console.log('core module')
 
     angular
         .module('app.core', [
@@ -9,4 +8,5 @@
             'ui.router',
             'routes'
         ]);
+
 })();

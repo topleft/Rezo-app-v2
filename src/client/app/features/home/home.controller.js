@@ -9,7 +9,6 @@
     homeController.$inject = ['$scope'];
 
     function homeController ($scope) {
-      console.log('home controller');
 
     }
 })();

@@ -1,13 +1,22 @@
 (function () {
     'use strict';
 
-console.log('app module')
-
-    angular.module('app', [ 
+    var app = angular.module('app', [ 
       'app.core',
       'app.features',
       'app.layout'
-    ]).run(function($state){});
+    ])
+
+    app.config(function ($mdThemingProvider) {
+      $mdThemingProvider.theme('default')
+        .primaryPalette('blue')
+        .accentPalette('orange')
+        .backgroundPalette('grey');
+    });
+
+    app.run(function ($state) {} );
+
+
 
 
 

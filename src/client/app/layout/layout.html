@@ -14,17 +14,17 @@
       </md-toolbar>
 
       
-      <section layout="row" flex layout-padding>
+      <section layout="row" flex>
         
         <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-md')" md-component-id="left">
           
-          <md-toolbar layout-align="center center">
+          <md-toolbar layout-align="center center" hide-gt-sm>
             <div class="md-toolbar-tools">          
               <h4>  
                 <span>Sidebar</span>
               </h4>  
               <span flex></span>
-              <md-button ng-click="close()" class="md-icon-button" hide-gt-md>
+              <md-button ng-click="close()" class="md-icon-button">
                 <i class="material-icons">reply</i>
               </md-button>
             </div>
@@ -46,7 +46,7 @@
           </md-list>
         </md-sidenav>
         
-        <md-content layout-margin flex>
+        <md-content flex>
           <div ui-view></div>
         </md-content>
       </section>

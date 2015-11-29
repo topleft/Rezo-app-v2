@@ -9,7 +9,6 @@
     layoutController.$inject = ['$scope', '$mdSidenav', '$timeout', '$log', '$mdUtil'];
 
     function layoutController ($scope, $mdSidenav, $timeout, $log, $mdUtil) {
-      console.log('layout controller');
       $scope.isLeftOpen = true;
       $scope.close = function () {
         $mdSidenav('left').toggle()

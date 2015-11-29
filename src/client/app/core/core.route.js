@@ -2,8 +2,6 @@ angular.module('routes', ['ui.router']);
 
 angular.module('routes').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
   
-  console.log("route");
-
   $stateProvider
   .state('home',{
     url: '/',

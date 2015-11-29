@@ -9,7 +9,6 @@
     dashboardController.$inject = ['$scope'];
 
     function dashboardController ($scope) {
-      console.log('dashboard controller');
 
     }
 })();
