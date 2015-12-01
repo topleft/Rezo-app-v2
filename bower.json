@@ -1,0 +1,30 @@
+{
+  "name": "meap-boiler",
+  "version": "1.0",
+  "homepage": "https://github.com/topleft/meap_boiler",
+  "authors": [
+    "topleft <pete.james.jeffryes@gmail.com>"
+  ],
+  "description": "MEAP boiler plate for application development",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.11.4",
+    "angular-route": "~1.4.8",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "bootstrap": "~3.3.5",
+    "jquery": "jQuery#~2.1.4",
+    "font-awesome": "~4.4.0",
+    "material-design-icons": "~2.1.1",
+    "material-calendar": "~0.2.12",
+    "moment": "~2.10.6",
+    "satellizer": "~0.13.1",
+    "sinon": "~1.17.2"
+  }
+}
