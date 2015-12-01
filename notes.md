@@ -32,6 +32,7 @@ User can login to book events.
 
 Admin can add event space.
 Admin can use google places api to register space.
+Admin can add event space address.
 Admin can set event space availablity.
 Admin can set event space occupancy.
 Admin can add event space menu.
