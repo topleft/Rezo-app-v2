@@ -32,7 +32,13 @@ angular.module('routes').config(['$stateProvider', '$urlRouterProvider', '$authP
     templateUrl: './src/client/app/features/dashboard/dashboard.html',
     controller: 'dashboardController',
     resolve: {loginRequired: loginRequired}
-  }); 
+  })
+  .state('calendar',{
+    url: '/calendar',
+    templateUrl: './src/client/app/features/calendar/calendar.html',
+    controller: 'calendarController',
+    resolve: {loginRequired: loginRequired}
+  });
 
   $urlRouterProvider.otherwise('/');
 

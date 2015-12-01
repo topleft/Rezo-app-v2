@@ -68,7 +68,7 @@ describe('google auth route', function() {
             chai.request(server)
             .post('/auth/google')
             .send({
-               code: '4/hi9WcmCVaPTmgKXWXzjpL2i0glTK-L7-QuMniRF4Cwc',
+               code: '',
                client_id: '633292235461-i4544m3kiiis6qsltkpiiu314br179v5.apps.googleusercontent.com',
                client_secret: config.GOOGLE_SECRET,
                redirect_uri: 'http://localhost:3000',
