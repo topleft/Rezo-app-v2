@@ -2,9 +2,8 @@
     'use strict';
 
     angular
-        .module('app.components', [
+        .module('app.features.calendar', [
           'app.core',
-          'app.components.calendar'
         ]);
 
 })();
