@@ -11,8 +11,8 @@
     function calendarController ($scope, CalendarData, Calendar, $rootScope) {
       var dataService = CalendarData;
 
-      $scope.toggleDisabled = function () {
-        var date = dataService.getActiveDate();
+      $scope.toggleDisabled = function (date) {
+        var date =  date || dataService.getActiveDate();
         var disabledList = dataService.getDisabled();
         if (disabledList.indexOf(date) !== -1) {
           dataService.removeDisabled(date);
