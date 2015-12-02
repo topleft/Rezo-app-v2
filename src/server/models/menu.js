@@ -1,11 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Menu = sequelize.define('Menu', {
-    space: {
-      type: DataTypes.STRING,
-      required: true,
-      allowNull: false
-    },
     bevItems: { 
       type:DataTypes.ARRAY(DataTypes.TEXT),
     },
@@ -15,11 +10,14 @@ module.exports = function(sequelize, DataTypes) {
     costPerPerson: { 
       type:DataTypes.FLOAT,
       required: true
-    }
+    },
+    spaceId: { 
+      type:DataTypes.INTEGER
+    },
   }, {
     classMethods: {
       associate: function(models) {
-        
+        // models.Menu.belongsTo(models.Space);
       }
     }
   });

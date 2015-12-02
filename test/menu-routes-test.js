@@ -25,13 +25,12 @@ describe('menu routes', function() {
         models.Menu.destroy({truncate: true});
   
         models.Menu.create({
-            space: 'Gather',
             bevItems: ['Beer', 'Soda', 'Water'],
             foodItems: ['Hamburger', 'Fries', 'Salad'],
-            costPerPerson: 20.00
+            costPerPerson: 20.00,
+            spaceId: 1
             }).then(function(menu){
                 testMenu1 = menu.dataValues;
-                console.log("Test Menu: ",testMenu1)
                 console.log('_____________________________________________________________');
                 console.log('\n');
                 done();
@@ -57,17 +56,15 @@ describe('menu routes', function() {
             chai.request(server)
             .post('/menu/create')
             .send({
-                space: 'Kannah',
                 bevItems: ['Pale', 'Buffalo Trace', 'Sparkling'],
                 foodItems: ['Pizza', 'Pesto Chip', 'Hummus'],
-                costPerPerson: 25.00
+                costPerPerson: 25.00,
+                spaceId: 2
             })
             .end(function(err, res){
                 res.should.have.status(200);
                 res.should.be.json;
                 res.body.should.be.a('object');
-                res.body.should.have.property('space');
-                res.body.space.should.eql('Kannah');
                 res.body.should.have.property('bevItems');
                 res.body.bevItems.should.be.a('array');
                 res.body.bevItems.length.should.eql(3);
@@ -77,6 +74,8 @@ describe('menu routes', function() {
                 res.body.should.have.property('id');
                 res.body.should.have.property('costPerPerson');
                 res.body.costPerPerson.should.eql(25.00);
+                res.body.should.have.property('spaceId');
+                res.body.spaceId.should.eql(2);
                 done();
             });
             
@@ -88,17 +87,15 @@ describe('menu routes', function() {
             chai.request(server)
             .put('/menu/update/'+testMenu1.id)
             .send({
-                space: 'Kannah Creek',
                 bevItems: ['Stout', 'Pale', 'Buffalo Trace', 'Sparkling'],
                 foodItems: ['Wings', 'Pizza', 'Pesto Chip', 'Hummus'],
-                costPerPerson: 30.00
+                costPerPerson: 30.00,
+                spaceId: 3
             })
             .end(function(err, res){                
                 res.should.have.status(200);
                 res.should.be.json;
                 res.body.should.be.a('object');
-                res.body.should.have.property('space');
-                res.body.space.should.eql('Kannah Creek');
                 res.body.should.have.property('bevItems');
                 res.body.bevItems.should.be.a('array');
                 res.body.bevItems.length.should.eql(4);
@@ -108,24 +105,24 @@ describe('menu routes', function() {
                 res.body.should.have.property('id');
                 res.body.should.have.property('costPerPerson');
                 res.body.costPerPerson.should.eql(30.00);
+                res.body.should.have.property('spaceId');
+                res.body.spaceId.should.eql(3);
                 done();
             });
             
         });
     });
 
-    describe('*** GET /menu/:space', function(done){
+    describe('*** GET /menu/:spaceId', function(done){
         
         it('should get all menus with space name', function(done){
             chai.request(server)
-            .get('/menu/'+'Gather')
+            .get('/menu/'+testMenu1.spaceId)
             .end(function(err, res){
                 res.should.have.status(200);
                 res.should.be.json;
                 res.body.should.be.a('array');
                 res.body.length.should.eql(1);
-                res.body[0].should.have.property('space');
-                res.body[0].space.should.eql('Gather');
                 res.body[0].should.have.property('bevItems');
                 res.body[0].bevItems.should.be.a('array');
                 res.body[0].bevItems.length.should.eql(3);
@@ -135,6 +132,8 @@ describe('menu routes', function() {
                 res.body[0].should.have.property('id');
                 res.body[0].should.have.property('costPerPerson');
                 res.body[0].costPerPerson.should.eql(20.00);
+                res.body[0].should.have.property('spaceId');
+                res.body[0].spaceId.should.eql(1);
                 done();
             });
         });

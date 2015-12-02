@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.post('/menu/create', function(req, res, next) {
   console.log("up in the menu create route");
     models.Menu.create({
-        space: req.body.space,
+        spaceId: req.body.spaceId,
         bevItems: req.body.bevItems,
         foodItems: req.body.foodItems,
         costPerPerson: req.body.costPerPerson,
@@ -24,11 +24,11 @@ router.post('/menu/create', function(req, res, next) {
 router.put('/menu/update/:menuId', function(req, res, next) {
     models.Menu.find({
       where: {
-        id: req.params.menuId
+        id: parseInt(req.params.menuId)
       }
     }).then(function(menu){
       menu.updateAttributes({
-          space: req.body.space,
+          spaceId: req.body.spaceId,
           bevItems: req.body.bevItems,
           foodItems: req.body.foodItems,
           costPerPerson: req.body.costPerPerson,
@@ -41,10 +41,10 @@ router.put('/menu/update/:menuId', function(req, res, next) {
 }); 
 
 
-router.get('/menu/:space', function(req, res) {
+router.get('/menu/:spaceId', function(req, res) {
     models.Menu.findAll({
         where: {
-            space: req.params.space 
+            spaceId: parseInt(req.params.spaceId)
         }
     }).then(function(menus){
         if (menus.length>0) {
@@ -60,7 +60,7 @@ router.get('/menu/:space', function(req, res) {
 router.delete('/menu/delete/:menuId', function(req, res) {
     models.Menu.destroy({
         where: {
-            id: req.params.menuId 
+            id: parseInt(req.params.menuId)
         }
     }).then(function(menu){
         res.json({msg: "Menu deleted."});

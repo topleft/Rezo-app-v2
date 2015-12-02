@@ -5,8 +5,8 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // Event.belongsToMany( Menu, { through: EventMenu });
-        // Menu.belongsToMany( Event, { through: EventMenu });
+        models.Event.belongsToMany( models.Menu, { through: EventMenu });
+        models.Menu.belongsToMany( models.Event, { through: EventMenu });
       }
     }
   });
