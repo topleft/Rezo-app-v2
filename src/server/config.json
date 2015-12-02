@@ -1,11 +1,11 @@
 {
   "development": {
-    "database": "money_development",
+    "database": "rezo_dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "money_test",
+    "database": "rezo_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

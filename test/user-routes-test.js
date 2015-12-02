@@ -1,15 +1,14 @@
 // process.env.NODE_ENV = 'test';
 
-// var server = require("../server/app");
+// var server = require("../src/server/app");
 // var mocha = require('mocha');
 // var chai = require('chai');
 // var chaiHttp = require('chai-http');
 // var request = require('request');
-// var cheerio = require('cheerio');
 // var should = chai.should();
 // chai.use(chaiHttp);
 
-// var models = require('../server/models/index');
+// var models = require('../src/server/models/index');
 
 // console.log('\n');
 // console.log('=====================================================');
@@ -18,14 +17,13 @@
 
 
 
-// describe('user & todo routes', function() {
+// describe('user routes', function() {
 //     var test1User;
 //     var test1Todo;
 
 //     beforeEach(function(done){
 //         console.log('___________This Happens Before Each _____________');
 //         models.User.destroy({truncate: true});
-//         models.Todo.destroy({truncate: true});
 
         
 //         models.User.create({
