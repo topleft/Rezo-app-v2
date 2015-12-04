@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/menu/create', function(req, res, next) {
     models.Menu.create({
+        name: req.body.name,
         SpaceId: req.body.SpaceId,
         bevItems: req.body.bevItems,
         foodItems: req.body.foodItems,
@@ -27,6 +28,7 @@ router.put('/menu/update/:menuId', function(req, res, next) {
       }
     }).then(function(menu){
       menu.updateAttributes({
+          name: req.body.name,
           spaceId: req.body.spaceId,
           bevItems: req.body.bevItems,
           foodItems: req.body.foodItems,

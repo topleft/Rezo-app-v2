@@ -48,4 +48,27 @@ need to change owner of space to ownerId, or maybe remove completely if we can g
 
 
 
-
+INSERT INTO "Spaces" 
+  (
+    name, 
+    type, 
+    "googlePlaceID", 
+    "contactFirstName",
+    "contactLastName",
+    "contactCellNumber", 
+    "contactEmail", 
+    occupancy,
+    "CreatedAt"
+  )
+VALUES
+  (
+    'CommonWealth',
+    'Restaurant/Bar',
+    'ChIJZTtCkKqAj4ARlg7QMuuhSRc',
+    'Pete',
+    'Jeffryes',
+    '5102891955',
+    'pete.topleft@gmail.com',
+    60,
+    
+  ); 

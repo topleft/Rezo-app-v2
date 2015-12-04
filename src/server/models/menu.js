@@ -1,6 +1,9 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Menu = sequelize.define('Menu', {
+    name: {
+      type:DataTypes.STRING,      
+    },
     bevItems: { 
       type:DataTypes.ARRAY(DataTypes.TEXT),
     },
