@@ -1,40 +1,37 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('Users', {
+    return queryInterface.createTable('Events', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
+      date: { 
+        type: Sequelize.DATE,
+        required: true
+      },
+      time: { 
         type: Sequelize.STRING,
-        required: true,
-        allowNull: false
+        required: true
       },
-      email: {
-        type: Sequelize.STRING,
-        required: true,
-        allowNull: false,
-        validate: {
-          isEmail: true
-        } 
+      totalGuests: { 
+        type: Sequelize.INTEGER,
+        required: true
       },
-      googleProfileID: {
+      cost: { 
+        type: Sequelize.FLOAT
+      },
+      specialRequests: { 
         type: Sequelize.STRING
       },
-      phoneNumber: {
+      inviteList: { 
         type: Sequelize.STRING
       },
-      firstName: {
-        type: Sequelize.STRING
-      },
-      lastName: {
-        type: Sequelize.STRING
-      },
-      companyName: {
-        type: Sequelize.STRING
+      barTab: { 
+        type: Sequelize.FLOAT,
+        required: true
       },
       createdAt: {
         allowNull: false,
@@ -47,6 +44,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Users');
+    return queryInterface.dropTable('Events');
   }
 };

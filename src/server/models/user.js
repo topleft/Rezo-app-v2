@@ -16,13 +16,26 @@ module.exports = function(sequelize, DataTypes) {
     },
     googleProfileID: {
       type: DataTypes.STRING
+    },
+    phoneNumber: {
+      type: DataTypes.STRING
+    },
+    firstName: {
+      type: DataTypes.STRING
+    },
+    lastName: {
+      type: DataTypes.STRING
+    },
+    companyName: {
+      type: DataTypes.STRING
     }
   }, {
     classMethods: {
       associate: function(models) {
-        User.hasMany(models.Item);
+        User.hasMany(models.Event);
       }
     }
   });
+  
   return User;
 };

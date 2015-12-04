@@ -1,18 +1,22 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('Items', {
+    return queryInterface.createTable('Menus', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING
+      bevItems: { 
+        type:Sequelize.ARRAY(Sequelize.TEXT),
       },
-      type: {
-        type: Sequelize.STRING
+      foodItems: {
+        type:Sequelize.ARRAY(Sequelize.TEXT),
+      },
+      costPerPerson: { 
+        type:Sequelize.FLOAT,
+        required: true
       },
       createdAt: {
         allowNull: false,
@@ -25,6 +29,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Items');
+    return queryInterface.dropTable('Menus');
   }
 };

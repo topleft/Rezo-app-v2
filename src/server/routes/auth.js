@@ -11,7 +11,7 @@ var helper = require('../logic/auth-logic');
 router.post('/google', function(req, res) {
  var accessTokenUrl = 'https://accounts.google.com/o/oauth2/token';
  var peopleApiUrl = 'https://www.googleapis.com/plus/v1/people/me/openIdConnect';
- console.log("code: ",req.body.code)
+ console.log("code: ",req.body.code);
  var params = {
    code: req.body.code,
    client_id: req.body.clientId,

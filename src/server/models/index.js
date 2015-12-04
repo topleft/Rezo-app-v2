@@ -33,5 +33,11 @@ Object.keys(db).forEach(function(modelName) {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
+  // db.sequelize
+  // .sync({ force: true })
+  // .then(function(err) {
+  //   console.log('It worked!');
+  // }, function (err) { 
+  //   console.log('An error occurred while creating the table:', err);
+  // });
 module.exports = db;
