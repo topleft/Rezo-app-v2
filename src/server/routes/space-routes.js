@@ -5,7 +5,6 @@ var models = require('../models/index');
 
 
 router.post('/space/create', function(req, res, next) {
-  console.log("BODYBODY", req.body);
     models.Space.create({
         name: req.body.name,
         type: req.body.type,

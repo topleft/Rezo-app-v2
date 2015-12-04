@@ -43,6 +43,9 @@ Admin can view booked events at event space.
 Admin can view profiles of users with booked events.
 
 
+need to address one to many relationships, how to set them,
+need to change owner of space to ownerId, or maybe remove completely if we can get the relationships figured out
+
 
 
 

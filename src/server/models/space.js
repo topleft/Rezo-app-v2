@@ -12,9 +12,6 @@ module.exports = function(sequelize, DataTypes) {
     googlePlaceID: { 
       type: DataTypes.STRING,
     },
-    owner: { 
-      type: DataTypes.STRING,
-    },
     contactFirstName: { 
       type: DataTypes.STRING,
       required: true,
@@ -46,7 +43,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // models.Space.hasMany(models.Menu);
+        Space.hasMany(models.Menu);
       }
     }
   });

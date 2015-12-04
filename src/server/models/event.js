@@ -1,13 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Event = sequelize.define('Event', {
-    space: { 
-      type: DataTypes.STRING,
-      required: true
-    },
-    owner: { 
-      type: DataTypes.STRING,
-    },
     date: { 
       type: DataTypes.DATE,
       required: true
@@ -17,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       required: true
     },
     totalGuests: { 
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       required: true
     },
     cost: { 
@@ -36,7 +29,8 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        Event.belongsTo(models.User)
+        Event.belongsTo(models.Space)
       }
     }
   });

@@ -9,9 +9,31 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        required: true,
+        allowNull: false
       },
       email: {
+        type: Sequelize.STRING,
+        required: true,
+        allowNull: false,
+        validate: {
+          isEmail: true
+        } 
+      },
+      googleProfileID: {
+        type: Sequelize.STRING
+      },
+      phoneNumber: {
+        type: Sequelize.STRING
+      },
+      firstName: {
+        type: Sequelize.STRING
+      },
+      lastName: {
+        type: Sequelize.STRING
+      },
+      companyName: {
         type: Sequelize.STRING
       },
       createdAt: {

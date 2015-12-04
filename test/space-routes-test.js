@@ -22,26 +22,31 @@ describe('space routes', function() {
 
     beforeEach(function(done){
         console.log('___________This Happens Before Each _____________');
-        models.Space.destroy({truncate: true});
+        // models.Space.destroy({truncate: true});
   
-        models.Space.create({
-            name: 'Gather',
-            type: 'Event Space, Bar',
-            googlePlaceID: 'ChIJf-xTgMR4bIcRcnPIy94BeIw',
-            owner: null,
-            contactFirstName: "Pete" ,
-            contactLastName: "Jeffryes",
-            contactCellNumber: "510-289-1955",
-            contactEmail: "pete.topleft@gmail.com",
-            occupancy: 200
-            }).then(function(Space){
-                testSpace1 = Space.dataValues;
-                console.log("Test Space: ", testSpace1)
-                console.log('_____________________________________________________________');
-                console.log('\n');
-                done();
+        models.Space.sync({
+            force: true
+            }).then(function() {
+                models.Space.create({
+                    name: 'Gather',
+                    type: 'Event Space, Bar',
+                    googlePlaceID: 'ChIJf-xTgMR4bIcRcnPIy94BeIw',
+                    owner: null,
+                    contactFirstName: "Pete" ,
+                    contactLastName: "Jeffryes",
+                    contactCellNumber: "510-289-1955",
+                    contactEmail: "pete.topleft@gmail.com",
+                    occupancy: 200
+                    }).then(function(Space){
+                        testSpace1 = Space.dataValues;
+                        console.log("Test Space: ", testSpace1)
+                        console.log('_____________________________________________________________');
+                        console.log('\n');
+                        done();
+                    });
             });
-        }); 
+
+    }); 
 
 
 

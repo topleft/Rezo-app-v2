@@ -8,20 +8,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      space: {
-        type: Sequelize.STRING,
-        required: true,
-        allowNull: false
-      },
-      bevItems: {
-        type: Sequelize.ARRAY(Sequelize.TEXT)
+      bevItems: { 
+        type:Sequelize.ARRAY(Sequelize.TEXT),
       },
       foodItems: {
-        type: Sequelize.ARRAY(Sequelize.TEXT)
+        type:Sequelize.ARRAY(Sequelize.TEXT),
       },
-      costPerPerson: {
-        type: Sequelize.FLOAT,
-        required: true        
+      costPerPerson: { 
+        type:Sequelize.FLOAT,
+        required: true
       },
       createdAt: {
         allowNull: false,

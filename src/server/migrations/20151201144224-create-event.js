@@ -8,13 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      space: { 
-        type: Sequelize.STRING,
-        required: true
-      },
-      owner: { 
-        type: Sequelize.STRING,
-      },
       date: { 
         type: Sequelize.DATE,
         required: true
@@ -24,7 +17,7 @@ module.exports = {
         required: true
       },
       totalGuests: { 
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         required: true
       },
       cost: { 

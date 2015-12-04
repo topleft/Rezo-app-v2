@@ -19,9 +19,6 @@ module.exports = {
       googlePlaceID: { 
         type: Sequelize.STRING,
       },
-      owner: { 
-        type: Sequelize.STRING,
-      },
       contactFirstName: { 
         type: Sequelize.STRING,
         required: true,
