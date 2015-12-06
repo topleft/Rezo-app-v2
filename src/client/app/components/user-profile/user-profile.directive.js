@@ -16,9 +16,9 @@
         };
     }
 
-    userProfileController.$inject = [ 'dataservice' ];
+    userProfileController.$inject = [];
 
-    function userProfileController(dataservice, frontEndDataService) {
+    function userProfileController() {
         var vm = this;
 
 

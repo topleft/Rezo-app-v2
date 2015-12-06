@@ -16,9 +16,9 @@
         };
     }
 
-    menuSelectionController.$inject = [ 'dataservice' ];
+    menuSelectionController.$inject = [ ];
 
-    function menuSelectionController(dataservice, frontEndDataService) {
+    function menuSelectionController() {
         var vm = this;
 
 

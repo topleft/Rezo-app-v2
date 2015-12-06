@@ -16,10 +16,17 @@
         };
     }
 
-    spaceSelectionController.$inject = [ 'dataservice', 'app.core' ];
+    spaceSelectionController.$inject = [ 'eventFactory', '$window' ];
 
-    function spaceSelectionController(dataservice, frontEndDataService) {
+    function spaceSelectionController(eventFactory, $window) {
         var vm = this;
+
+        vm.selectSpace = function () {
+            var user = JSON.parse($window.localStorage.currentUser);
+            eventFactory.eventObject.SpaceId = 1;
+            eventFactory.eventObject.UserId = user.id;
+            console.log(eventFactory.eventObject)
+        }   
 
 
 

@@ -16,9 +16,9 @@
         };
     }
 
-    timeGuestFormController.$inject = [ 'dataservice' ];
+    timeGuestFormController.$inject = [ ];
 
-    function timeGuestFormController(dataservice, frontEndDataService) {
+    function timeGuestFormController() {
         var vm = this;
 
 

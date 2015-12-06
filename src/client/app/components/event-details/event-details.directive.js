@@ -16,9 +16,9 @@
         };
     }
 
-    eventDetailsController.$inject = [ 'dataservice' ];
+    eventDetailsController.$inject = [ ];
 
-    function eventDetailsController(dataservice, frontEndDataService) {
+    function eventDetailsController() {
         var vm = this;
 
 
