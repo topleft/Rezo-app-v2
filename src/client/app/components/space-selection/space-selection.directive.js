@@ -27,7 +27,6 @@
             dashboardFactory.eventObject.SpaceId = 1;
             dashboardFactory.eventObject.UserId = user.id;
             dashboardFactory.nextPage();
-            console.log(dashboardFactory.currentPage)
         }   
 
 

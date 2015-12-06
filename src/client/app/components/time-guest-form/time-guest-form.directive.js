@@ -8,7 +8,7 @@
     function timeGuestFormDirective() {
         return {
             restrict: 'E', 
-            templateUrl: 'scr/client/app/components/time-guest-form/time-guest-form.html',
+            templateUrl: 'src/client/app/components/time-guest-form/time-guest-form.html',
             scope: {},
             controller: timeGuestFormController,
             controllerAs: 'vm',
@@ -16,10 +16,23 @@
         };
     }
 
-    timeGuestFormController.$inject = [ ];
+    timeGuestFormController.$inject = [ 'dashboardFactory' ];
 
-    function timeGuestFormController() {
+    function timeGuestFormController(dashboardFactory) {
         var vm = this;
+        console.log('form')
+
+        vm.capacity = 60
+        vm.times = ["1:00", "1:30", "2:00", "2:30"];
+
+        vm.select = function() {
+            dashboardFactory.eventObject.time = vm.time
+            dashboardFactory.eventObject.totalGuests = vm.totalGuests
+            console.log(dashboardFactory.eventObject);
+        }
+
+
+
 
 
 
