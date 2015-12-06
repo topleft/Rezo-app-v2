@@ -6,31 +6,22 @@
         .controller('dashboardController', dashboardController);
 
 
-    dashboardController.$inject = ['$scope', 'eventFactory'];
+    dashboardController.$inject = ['$scope', 'dashboardFactory'];
 
-    function dashboardController ($scope, eventFactory) {
+    function dashboardController ($scope, dashboardFactory) {
       console.log("dashboard");
 
-      $scope.form = {}
+      $scope.page = {}
 
-      $scope.form.page = eventFactory.currentPage;
+      $scope.page = dashboardFactory.page;
+      console.log($scope.page)
 
       $scope.nextPage = function () {
-        $scope.form.page++
-        eventFactory.currentPage = $scope.form.page;
-        console.log("==========")
-        console.log("Controller Page",$scope.form.page)
-        console.log("Factory Page",eventFactory.currentPage)
-        console.log("==========")
+        dashboardFactory.nextPage();
         }
 
       $scope.prevPage = function () {
-        $scope.form.page--
-        eventFactory.currentPage  = $scope.form.page;
-        console.log("==========")
-        console.log("Controller Page",$scope.form.page)
-        console.log("Factory Page",eventFactory.currentPage)
-        console.log("==========")
+        dashboardFactory.prevPage();
       }
 
 

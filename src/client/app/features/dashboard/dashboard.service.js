@@ -1,10 +1,12 @@
-angular.module("app.components.event-details").factory("eventFactory", ["$http",function ($http) {
+angular.module("app.features.dashboard").factory("dashboardFactory", ["$http",function ($http) {
 
 
 
     var service = {};
 
-     service.currentPage = 1;
+     service.page = {};
+
+     service.page.current = 1;
 
      service.eventObject = {
       UserId: null,
@@ -17,11 +19,18 @@ angular.module("app.components.event-details").factory("eventFactory", ["$http",
      };
 
      service.nextPage = function() {
-      service.currentPage++
+      service.page.current++;
+      return service.page.current;
+      console.log(service.page.current)
      }     
 
      service.prevPage = function() {
-      service.currentPage--
+      service.page.current--;
+      return service.page.current;
+     }     
+
+     service.getPage = function() {
+      return service.page.current;
      }
 
      service.submitEvent = function () {
@@ -29,8 +38,6 @@ angular.module("app.components.event-details").factory("eventFactory", ["$http",
      };
 
     return service;
-
-
 
 }]);
 

@@ -1,9 +1,9 @@
-<space-selection ng-if="form.page === 1" id="space"></space-selection>
-<calendarMd ng-if="form.page === 2" id="calendar"></calendarMd>
-<timeGuestForm ng-if="form.page === 3" id="timeGuest"></timeGuestForm>
-<menu-selection ng-if="form.page === 4" id="menu"></menu-selection>
-<user-profile ng-if="form.page === 5" id="profile"></user-profile>
-<event-details ng-if="form.page=== 6" id="final"></event-details> 
+<space-selection ng-if="page.current === 1" id="space"></space-selection>
+<calendarMd ng-if="page.current === 2" id="calendar"></calendarMd>
+<timeGuestForm ng-if="page.current === 3" id="timeGuest"></timeGuestForm>
+<menu-selection ng-if="page.current === 4" id="menu"></menu-selection>
+<user-profile ng-if="page.current === 5" id="profile"></user-profile>
+<event-details ng-if="page.current=== 6" id="final"></event-details> 
 
 <div layout="row" layout-align="center">
   <md-button class="md-raised" lagout-margin ng-click="prevPage()">Prev</md-button>

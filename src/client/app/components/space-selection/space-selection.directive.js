@@ -16,16 +16,18 @@
         };
     }
 
-    spaceSelectionController.$inject = [ 'eventFactory', '$window' ];
+    spaceSelectionController.$inject = ['dashboardFactory', '$window' ];
 
-    function spaceSelectionController(eventFactory, $window) {
+    function spaceSelectionController(dashboardFactory, $window) {
         var vm = this;
 
         vm.selectSpace = function () {
+            console.log("select")
             var user = JSON.parse($window.localStorage.currentUser);
-            eventFactory.eventObject.SpaceId = 1;
-            eventFactory.eventObject.UserId = user.id;
-            console.log(eventFactory.eventObject)
+            dashboardFactory.eventObject.SpaceId = 1;
+            dashboardFactory.eventObject.UserId = user.id;
+            dashboardFactory.nextPage();
+            console.log(dashboardFactory.currentPage)
         }   
 
 
