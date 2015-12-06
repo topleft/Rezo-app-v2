@@ -47,28 +47,28 @@ need to address one to many relationships, how to set them,
 need to change owner of space to ownerId, or maybe remove completely if we can get the relationships figured out
 
 
+#### Page: Home (Displays details and login)
+#### Page: Space Selection
+* UA: select Restaurant
+* data: creates an event object w/ spaceId and userId
+#### Page: Calendar
+* DB: calendar is populated with unavailable dates
+* UA: selects date
+* data: date is added to event object
+#### Page: Time and Total Guests Form
+* UA: selects time and total guests
+* data: added to event object
+#### Page: Menu and Bar Tab selection
+* UA: selects menu and tab amount
+* data: added to event object
+#### Page: User Profile Details Form
+* DB: inputs are pre populated if data available
+* UA: user submits
+* DB: save user profile info
+#### Page: Event Details Confirmation
+* UA: users confirms
+* DB: event is saved
+* DB: EventMenu row is created with total menus??? optional
+* side effect: text is sent to user and space owner
 
-INSERT INTO "Spaces" 
-  (
-    name, 
-    type, 
-    "googlePlaceID", 
-    "contactFirstName",
-    "contactLastName",
-    "contactCellNumber", 
-    "contactEmail", 
-    occupancy,
-    "CreatedAt"
-  )
-VALUES
-  (
-    'CommonWealth',
-    'Restaurant/Bar',
-    'ChIJZTtCkKqAj4ARlg7QMuuhSRc',
-    'Pete',
-    'Jeffryes',
-    '5102891955',
-    'pete.topleft@gmail.com',
-    60,
-    
-  ); 
+
