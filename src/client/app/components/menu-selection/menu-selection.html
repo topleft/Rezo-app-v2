@@ -1,5 +1,42 @@
-<div layout="row" layout-align="center center">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+<div layout="column" layout-align="start center">
+    <h2>Menu and Drinks</h2>
 </div>
+<md-content class="md-padding" layout="row" layout-align="">
+      
+    <md-content layout="column" layout-align="start start" flex="30">
+      
+      <md-input-container flex>
+        <label>Menu</label>
+        <md-select ng-model="vm.menuId">
+          <md-option ng-repeat="menu in vm.menus" value="{{menu.id}}">{{menu.name}}, ${{menu.costPerPerson}} per person</md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container flex class="md-icon-float md-block">
+        <!-- Use floating label instead of placeholder -->
+        <label>Quantity</label>
+        <input ng-model="vm.quantity" type="number">
+      </md-input-container>
+    
+      <md-button flex class="md-raised" ng-click="vm.selectMenu()">Add Menu</md-button>
+
+    </md-content>
+
+    <md-content ng-if="vm.selectedMenus.length > 0" layout="column" layout-align="start" flex>
+    <div>
+      <span>Selected Menus</span>
+      <span  ng-repeat="menu in vm.selectedMenus">{{menu}}</span>
+    </div>
+
+    </md-content>
+
+    <md-content layout="column" layout-align="start" flex>
+      <md-input-container flex class="md-icon-float md-block">
+        <!-- Use floating label instead of placeholder -->
+        <label>Bar Tab $</label>
+        <input ng-model="vm.barTab" type="number">
+      </md-input-container>
+      <md-button flex class="md-raised" ng-click="vm.setBarTab()">Set Bar Tab</md-button>
+    </md-content>
+
+</md-content>

@@ -1,25 +1,23 @@
 <md-content class="md-padding" layout="column" layout-align="center center">
     <h2>Time and Guests</h2>
-      
-    <div layout="row" flex>
+    </md-content>
+<div layout="row" layout-align="center">
+<md-content class="md-padding" layout="column" flex="50">      
         <!-- <i class="material-icons">access time<i> -->
-      <md-input-container>
+      <md-input-container flex>
         <label>Time</label>
         <md-select ng-model="vm.time">
           <md-option ng-repeat="time in vm.times" value="{{time}}">{{time}}</md-option>
         </md-select>
       </md-input-container>
-    </div>
 
-    <div layout="row" flex>
     <md-icon md-font-icon="font-home"></md-icon>
-      <md-input-container class="md-icon-float md-block">
+      <md-input-container class="md-icon-float md-block" flex>
       <!-- Use floating label instead of placeholder -->
       <label># of Guests</label>
       <input ng-model="vm.totalGuests" type="text" placeholder="{{vm.capacity}} maximum">
     </md-input-container>
-    </div>
 
     <md-button class="md-raised" ng-click="vm.select()">select</md-button>
-
+</div>
 </md-content>

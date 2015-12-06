@@ -8,7 +8,7 @@
     function userProfileDirective() {
         return {
             restrict: 'E', 
-            templateUrl: 'scr/client/app/components/user-profile/user-profile.html',
+            templateUrl: 'src/client/app/components/user-profile/user-profile.html',
             scope: {},
             controller: userProfileController,
             controllerAs: 'vm',
@@ -16,10 +16,18 @@
         };
     }
 
-    userProfileController.$inject = [];
+    userProfileController.$inject = ['dashboardFactory'];
 
-    function userProfileController() {
+    function userProfileController(dashboardFactory) {
         var vm = this;
+
+        vm.user = dashboardFactory.user;
+
+
+        vm.updateProfile = function () {
+            dashboardFactory.user = vm.user
+            dashboardFactory.nextPage();
+        }
 
 
 

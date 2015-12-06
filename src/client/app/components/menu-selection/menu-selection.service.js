@@ -1,10 +1,14 @@
-angular.module("app.components.menu-selection").factory("menuFactory", [function () {
+angular.module("app.components.menu-selection").factory("menuFactory", ['$http', 'dashboardFactory', function ($http, dashboardFactory) {
 
 
-    return service;
 
-    var service = {};
+    // var service = {};
 
+    // service.getMenusForSpace = function () {
+    //   dashboardFactory.eventObject.
+    // } 
+
+    // return service;
 
 
 }]);

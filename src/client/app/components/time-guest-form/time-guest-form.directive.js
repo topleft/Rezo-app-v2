@@ -28,6 +28,7 @@
         vm.select = function() {
             dashboardFactory.eventObject.time = vm.time
             dashboardFactory.eventObject.totalGuests = vm.totalGuests
+            dashboardFactory.nextPage();
             console.log(dashboardFactory.eventObject);
         }
 
