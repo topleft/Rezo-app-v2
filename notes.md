@@ -4,9 +4,6 @@ Display Available/Selected Menus with picture -  3 hrs
   * update menu table with 'pictureUrl' column
   * use grid list with material 
 
-Twilio - 2 hrs
-  * send tweet on booking
-
 Dynamically Load Spaces - 4 hrs
   * update space table with 'pictureUrl' column
   * grid list on selection page

@@ -31,7 +31,7 @@
             var contactPerson = vm.space.contactFirstName;
             var spaceName = vm.space.name;
             var userMsg = "Hey "+vm.user.username+", "+contactPerson+" from "+spaceName+" will be in touch shortly to lock in your event booking. THANKS for using Rezo!";
-            var spaceMsg = "Hey "+contactPerson+", "+vm.user.username+" just booked and event at "+spaceName+"! Their contact number is "+userPhone+". Give 'em a call to finalize the booking and make some $$$ :) THANKS for using with Rezo!"
+            var spaceMsg = "Hey "+contactPerson+", "+vm.user.username+" just booked and event at "+spaceName+"! Their contact number is "+userPhone+". Give 'em a call to finalize the booking and make some $$$ :) THANKS for using Rezo!"
 
             dashboardFactory.submitEvent();
             dashboardFactory.sendText(userPhone, userMsg)
