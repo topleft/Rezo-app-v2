@@ -1,7 +1,7 @@
 ### Rezo App
 
-googleclientid 
-heroku 816554237691-5fhpjev32egi9lp6kgqr169tc9eoov45.apps.googleusercontent.com
+googleclientid heroku
+816554237691-5fhpjev32egi9lp6kgqr169tc9eoov45.apps.googleusercontent.com
 
 
 [flow chart](https://www.lucidchart.com/documents/edit/8e01f617-2b57-4112-be6f-342c6eba27f0)
