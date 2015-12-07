@@ -97,6 +97,7 @@ angular.module("app.components.calendar").service("CalendarData", [function () {
     function CalendarData() {
 
         this.data = {};
+        this.data.activeDate = null;
         this.data.disabled = [];
 
         this.setDisabled = function(date) {
@@ -120,7 +121,7 @@ angular.module("app.components.calendar").service("CalendarData", [function () {
         };
 
         this.setActiveDate = function(date) {
-            this.data['activeDate'] = date;
+            this.data.activeDate = date;
         };
 
         this.getActiveDate = function() {

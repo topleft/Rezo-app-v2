@@ -54,6 +54,18 @@ router.get('/menu/:menuId', function(req, res) {
     });
 });
 
+router.get('/menus/space/:spaceId', function(req, res) {
+    models.Menu.findAll({
+        where: {
+            SpaceId: req.params.spaceId 
+        }
+    }).then(function(spaces){
+        res.json(spaces);
+    }).catch(function(err){
+        res.json(err);
+    });
+});
+
 
 router.delete('/menu/delete/:menuId', function(req, res) {
     models.Menu.destroy({

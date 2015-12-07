@@ -6,9 +6,24 @@
         .controller('dashboardController', dashboardController);
 
 
-    dashboardController.$inject = ['$scope'];
+    dashboardController.$inject = ['$scope', 'dashboardFactory'];
 
-    function dashboardController ($scope) {
+    function dashboardController ($scope, dashboardFactory) {
+      console.log("dashboard");
+
+      $scope.page = {}
+
+      $scope.page = dashboardFactory.page;
+      console.log($scope.page)
+
+      $scope.nextPage = function () {
+        dashboardFactory.nextPage();
+        }
+
+      $scope.prevPage = function () {
+        dashboardFactory.prevPage();
+      }
+
 
     }
 })();

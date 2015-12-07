@@ -1,4 +1,4 @@
-angular.module("app.components.calendar").directive("calendarMd", ["$compile", "$parse", "$http", "$q", "Calendar", "CalendarData",'$rootScope', function ($compile, $parse, $http, $q, Calendar, CalendarData, $rootScope ) {
+angular.module("app.components.calendar").directive("calendarMd", ["$compile", "$parse", "$http", "$q", "Calendar", "CalendarData",'$rootScope',"dashboardFactory", function ($compile, $parse, $http, $q, Calendar, CalendarData, $rootScope, dashboardFactory ) {
 
     var defaultTemplate = "<md-content layout='column' layout-fill md-swipe-left='next()' md-swipe-right='prev()'><md-toolbar><div class='md-toolbar-tools' layout='row'><md-button class='md-icon-button' ng-click='prev()' aria-label='Previous month'><md-tooltip ng-if='::tooltips()'>Previous month</md-tooltip>&laquo;</md-button><div flex></div><h2 class='calendar-md-title'><span>{{ calendar.start | date:titleFormat:timezone }}</span></h2><div flex></div><md-button class='md-icon-button' ng-click='next()' aria-label='Next month'><md-tooltip ng-if='::tooltips()'>Next month</md-tooltip>&raquo;</md-button></div></md-toolbar><!-- agenda view --><md-content ng-if='weekLayout === columnWeekLayout' class='agenda'><div ng-repeat='week in calendar.weeks track by $index'><div ng-if='sameMonth(day)' ng-class='{ active: active === day }' ng-click='handleDayClick(day)' ng-repeat='day in week' layout><md-tooltip ng-if='::tooltips()'>{{ day | date:dayTooltipFormat:timezone }}</md-tooltip><div>{{ day | date:dayFormat:timezone }}</div><div flex ng-bind-html='dataService.data[dayKey(day)]'></div></div></div></md-content><!-- calendar view --><md-content ng-if='weekLayout !== columnWeekLayout' flex layout='column' class='calendar'><div layout='row' class='subheader'><div layout-padding class='subheader-day' flex ng-repeat='day in calendar.weeks[0]'><md-tooltip ng-if='::tooltips()'>{{ day | date:dayLabelTooltipFormat }}</md-tooltip>{{ day | date:dayLabelFormat }}</div></div><div ng-if='week.length' ng-repeat='week in calendar.weeks track by $index' flex layout='row'><div tabindex='{{ sameMonth(day) ? (day | date:dayFormat:timezone) : 0 }}' ng-repeat='day in week track by $index' ng-click='handleDayClick(day)' flex layout layout-padding ng-class='{&quot;disabled&quot; : isDisabled(day), &quot;active&quot;: isActive(day), &quot;md-whiteframe-12dp&quot;: hover || focus }' ng-focus='focus = true;' ng-blur='focus = false;' ng-mouseleave='hover = false' ng-mouseenter='hover = true'><md-tooltip ng-if='::tooltips()'>{{ day | date:dayTooltipFormat }}</md-tooltip><div>{{ day | date:dayFormat }}</div><div flex ng-bind-html='dataService.data[dayKey(day)]'></div></div></div></md-content></md-content>";
 
@@ -36,6 +36,7 @@ angular.module("app.components.calendar").directive("calendarMd", ["$compile", "
             clearDataCacheOnLoad: "=?",
             disableFutureSelection: "=?"
         },
+        controller: calendarController,
         link: function ($scope, $element, $attrs) {
 
             // Add the CSS here.
@@ -144,15 +145,28 @@ angular.module("app.components.calendar").directive("calendarMd", ["$compile", "
                 handleCb($scope.onNextMonth, data);
             };
 
+            var previousActive;
+
+            function clearDayContent(previousActive) {
+                if(previousActive) {
+                    console.log(previousActive)
+                    CalendarData.setDayContent(previousActive, '<span></span>');
+                }
+            }
+
             $scope.handleDayClick = function (date) {
+                clearDayContent(previousActive)
+                previousActive = date;
 
                 // if($scope.disableFutureSelection && date > new Date()) {
                 //     return;
                 // }
-
+                // set event date 
+                dashboardFactory.eventObject.date = date;
+                CalendarData.setDayContent(date, 
+                    '<i class="material-icons md-18">grade</i>');
+                
                 var active = angular.copy($scope.active);
-
-                CalendarData.setActiveDate(date);
                 
                 if (angular.isArray(active)) {
                     var idx = dateFind(active, date);
@@ -261,8 +275,7 @@ angular.module("app.components.calendar").directive("calendarMd", ["$compile", "
 
             $scope.$watch("weekStartsOn", init);
             bootstrap();
-
-
+            
             // These are for tests, don't remove them..
             $scope._$$init = init;
             $scope._$$setTemplate = setTemplate;
@@ -270,5 +283,36 @@ angular.module("app.components.calendar").directive("calendarMd", ["$compile", "
 
         }
     };
+
+
+    function calendarController ($scope, CalendarData, Calendar, $rootScope, dashboardFactory) {
+
+      var dataService = CalendarData;
+
+      
+      // var date = dataService.data;
+      
+      // $scope.toggleDisabled = function (date) {
+      //   var date =  date || dataService.getActiveDate();
+      //   var disabledList = dataService.getDisabled();
+      //   if (disabledList.indexOf(date) !== -1) {
+      //     dataService.removeDisabled(date);
+      //   }
+      //   else {
+      //     dataService.setDisabled(date);
+      //   }
+      // }
+
+      $scope.setDate = function (content) {
+        var activeDate = dataSevice.getActiveDate();
+        dashboardFactory.eventObject.date = activeDate;
+        console.log(dashboardFactory.eventObject)
+        dataService.setDayContent(today, '<span>Booked</span>');
+      }
+
+
+
+    }
+
 
 }]);
