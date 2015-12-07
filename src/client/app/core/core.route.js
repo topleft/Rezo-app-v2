@@ -5,7 +5,7 @@ angular.module('routes').config(['$stateProvider', '$urlRouterProvider', '$authP
   $authProvider
   .google({
     url: '/auth/google',
-    clientId: '633292235461-i4544m3kiiis6qsltkpiiu314br179v5.apps.googleusercontent.com',
+    clientId: '816554237691-5fhpjev32egi9lp6kgqr169tc9eoov45.apps.googleusercontent.com',
     redirectUri: window.location.origin
   });
   
