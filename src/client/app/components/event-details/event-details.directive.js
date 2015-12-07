@@ -26,6 +26,7 @@
 
         vm.confirmDetails = function () {
             dashboardFactory.submitEvent();
+            // next page called in dashBoard for async reasons                
         };
 
     }

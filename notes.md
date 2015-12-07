@@ -1,5 +1,25 @@
 ### Rezo App
 
+Display Available/Selected Menus with picture -  3 hrs 
+  * update menu table with 'pictureUrl' column
+  * use grid list with material 
+
+Twilio - 2 hrs
+  * send tweet on booking
+
+Dynamically Load Spaces - 4 hrs
+  * update space table with 'pictureUrl' column
+  * grid list on selection page
+
+Overall Styling - 3 hrs
+  * font 
+  * colors
+
+Side Bar Form Navigation - 3 hrs
+  * highlight current form section
+  * disable not yet seen sections
+
+
 googleclientid heroku
 816554237691-5fhpjev32egi9lp6kgqr169tc9eoov45.apps.googleusercontent.com
 

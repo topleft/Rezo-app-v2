@@ -19,6 +19,7 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       service.eventObject.eventMenuObjects = [];
       service.user = {}
       service.user.current = JSON.parse($window.localStorage.currentUser);
+      service.bookedEvent = null;
 
       service.createEventMenuObject = function(MenuId, quantity, cost) {
         var eventMenuObject = {
@@ -65,8 +66,10 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       service.submitEvent = function () {
         $http.post('/event/create', this.eventObject)
         .success(function(event){
-          console.log("New Event:",event);
-        });
+          service.bookedEvent = event;
+          console.log("New Event:",service.bookedEvent);
+          service.nextPage();
+          });
         // add in .success submit eventMenus
       };
 
