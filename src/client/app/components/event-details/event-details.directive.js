@@ -34,9 +34,11 @@
             var spaceMsg = "Hey "+contactPerson+", "+vm.user.username+" just booked and event at "+spaceName+"! Their contact number is "+userPhone+". Give 'em a call to finalize the booking and make some $$$ :) THANKS for using Rezo!"
 
             dashboardFactory.submitEvent();
-            dashboardFactory.sendText(userPhone, userMsg)
-            dashboardFactory.sendText(spacePhone, spaceMsg)
             // next page called in dashBoard for async reasons                
+            
+            // ** uncomment for production **//
+            // dashboardFactory.sendText(userPhone, userMsg)
+            // dashboardFactory.sendText(spacePhone, spaceMsg)
         };
 
     }

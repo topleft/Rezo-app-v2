@@ -30,21 +30,23 @@ var dinnerMenu;
                   {force: true
                   }).then(function() {
                       models.Menu.create({
-                          name: 'Lunch',
+                          name: "Bangers & Mash",
                           bevItems: ['Beer', 'Soda', 'Water'],
-                          foodItems: ['Hamburger', 'Fries', 'Salad'],
-                          costPerPerson: 20.00,
-                          SpaceId: CommonWealth.id
+                          foodItems: ['Bangers & Mash', 'Scotch Egg', 'Grapefruit Fennel Salad', 'Bread Pudding'],
+                          costPerPerson: 22.00,
+                          SpaceId: CommonWealth.id,
+                          imageUrl: 'http://static1.squarespace.com/static/54e0f431e4b043f1c99a55d0/54f36b8ee4b05fe3d5e421f1/54f36ea3e4b02d9040e03b95/1427935340471/vjccw4.jpg?format=1000w'
                       }).then(function(menu){
                           lunchMenu = menu.dataValues;
                           console.log('_____________________________________________________________');
                           console.log('\n');
                           models.Menu.create({
-                              name: 'Dinner',
+                              name: 'Vegetable Curry',
                               bevItems: ['Beer', 'Wine', 'Sparkling Water'],
-                              foodItems: ['Steak', 'Chicken Pot Pie', 'Salad', 'Bread Pudding'],
-                              costPerPerson: 40.00,
-                              SpaceId: CommonWealth.id
+                              foodItems: ['Curry with Naan', 'Dahl', 'Papaya Salad', 'Veagn Apple Pie'],
+                              costPerPerson: 18.00,
+                              SpaceId: CommonWealth.id,
+                              imageUrl: 'http://www.lotusartichoke.com/wp-content/uploads/2012/08/mutterpaneertofu_7094w_700.jpg'
                           }).then(function(menu){
                               dinnerMenu = menu.dataValues;
                               console.log('_____________________________________________________________');
