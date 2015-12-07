@@ -6,6 +6,8 @@ var models = require('../models/index');
 router.post('/event/create', function(req, res, next) {
   console.log("up in the event create route");
     models.Event.create({
+        SpaceId: req.body.SpaceId,
+        UserId: req.body.UserId,
         date: req.body.date, 
         time: req.body.time, 
         totalGuests: req.body.totalGuests, 
