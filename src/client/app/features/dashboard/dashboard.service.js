@@ -3,7 +3,6 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
 
 
       var service = {};
-
       service.page = {};
       service.page.current = 1;
       service.eventObject = {
@@ -16,9 +15,20 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
         barTab: null,
         cost: null,
       };
+      service.space = {};
+      service.space.current = null;
       service.eventObject.eventMenuObjects = [];
       service.user = {}
       service.user.current = JSON.parse($window.localStorage.currentUser);
+      service.bookedEvent = null;
+
+      service.setCurrentSpace = function (spaceId) {
+        $http.get('/space/'+spaceId)
+        .success(function(space){
+          service.space.current = space;
+          console.log("Space:", service.space.current )
+        })
+      }
 
       service.createEventMenuObject = function(MenuId, quantity, cost) {
         var eventMenuObject = {
@@ -35,6 +45,18 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
           item.EventId = id;
         });
       };
+
+      service.updateUser = function (phoneNumber, email, companyName) {
+        if (!companyName) {companyName = null}
+        return $http.put('/user/update/'+service.user.current.id, {
+          phoneNumber: phoneNumber, 
+          email: email, 
+          companyName: companyName
+        }).success(function(user){
+          service.user.current = user;
+          console.log("Current User", user)
+        })
+      }
 
 
       service.calculateFoodCost = function (quantity, costPerPerson) {
@@ -65,9 +87,27 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       service.submitEvent = function () {
         $http.post('/event/create', this.eventObject)
         .success(function(event){
-          console.log("New Event:",event);
-        });
+          service.bookedEvent = event;
+          console.log("New Event:",service.bookedEvent);
+          service.sendText()
+          service.nextPage();
+          });
         // add in .success submit eventMenus
+      };
+
+      service.sendText = function ( phoneNumber, message, imageUrl ) {
+        if(imageUrl) {
+          $http.post('/twilio/mms', {
+            phoneNumber: phoneNumber, 
+            message: message, 
+            imageUrl: imageUrl
+          })
+        } else {
+          $http.post('/twilio/sms', {
+            phoneNumber: phoneNumber, 
+            message: message
+          });
+        }
       };
 
       return service;

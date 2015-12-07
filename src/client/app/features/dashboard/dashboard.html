@@ -2,9 +2,6 @@
 <md-content layout="column" flex layout-padding>
   <div ng-if="page.current === 1" layout="row" layout-align="center center">
   </div>
-
-  <!-- <md-button ng-click="setDate()">happy day</md-button> -->
-  <!-- <md-button ng-click="toggleDisabled(date)">disable day</md-button> -->
   
   <div layout='column' ng-if="page.current === 2" flex class="full-height">
     <div layout="row" layout-align="center center" layout-margin>
@@ -40,6 +37,7 @@
 <menu-selection ng-if="page.current === 3" id="menu"></menu-selection>
 <user-profile ng-if="page.current === 4" id="profile"></user-profile>
 <event-details ng-if="page.current=== 5" id="final"></event-details> 
+<rezo-confirmation ng-if="page.current=== 6" id="confirmation"></rezo-confirmation> 
 
 <div layout="row" layout-align="end end">
   <md-button class="md-raised" lagout-margin ng-click="prevPage()">Prev</md-button>

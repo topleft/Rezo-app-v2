@@ -19,7 +19,7 @@ var dinnerMenu;
             owner: null,
             contactFirstName: "Pete" ,
             contactLastName: "Jeffryes",
-            contactCellNumber: "510-289-1955",
+            contactCellNumber: "5102891955",
             contactEmail: "pete.topleft@gmail.com",
             occupancy: 60
             }).then(function(space){

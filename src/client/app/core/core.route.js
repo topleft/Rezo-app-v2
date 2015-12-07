@@ -5,19 +5,19 @@ angular.module('routes').config(['$stateProvider', '$urlRouterProvider', '$authP
   $authProvider
   .google({
     url: '/auth/google',
-    clientId: '816554237691-5fhpjev32egi9lp6kgqr169tc9eoov45.apps.googleusercontent.com',
-    redirectUri: window.location.origin
+    clientId: '633292235461-i4544m3kiiis6qsltkpiiu314br179v5.apps.googleusercontent.com',
+    redirectUri: window.location.origin //'https://rezo.herokuapp.com'
   });
   
   $stateProvider
   .state('login',{
-    url: '/login',
+    url: '/',
     templateUrl: './src/client/app/features/login/login.html',
     controller: 'loginController',
     resolve: {skipIfLoggedIn: skipIfLoggedIn}
   })
   .state('home',{
-    url: '/',
+    url: '/home',
     templateUrl: './src/client/app/features/home/home.html',
     controller: 'homeController',
   })
