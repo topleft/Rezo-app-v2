@@ -8,7 +8,7 @@
     function eventDetailsDirective() {
         return {
             restrict: 'E', 
-            templateUrl: 'scr/client/app/components/event-details/event-details.html',
+            templateUrl: 'src/client/app/components/event-details/event-details.html',
             scope: {},
             controller: eventDetailsController,
             controllerAs: 'vm',
@@ -16,12 +16,17 @@
         };
     }
 
-    eventDetailsController.$inject = [ ];
+    eventDetailsController.$inject = [ 'dashboardFactory'];
 
-    function eventDetailsController() {
+    function eventDetailsController(dashboardFactory) {
         var vm = this;
+        vm.user = dashboardFactory.user.current
+        vm.event = dashboardFactory.eventObject
+        vm.selectedMenus = vm.event.eventMenuObjects;
 
-
+        vm.confirmDetails = function () {
+            dashboardFactory.submitEvent();
+        };
 
     }
 

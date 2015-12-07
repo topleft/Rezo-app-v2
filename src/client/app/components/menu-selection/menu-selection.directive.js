@@ -20,7 +20,8 @@
 
     function menuSelectionController(dashboardFactory) {
         var vm = this;
-        vm.menu
+        vm.menus;
+        var totalFoodCost = 0;
 
         vm.event = dashboardFactory.eventObject;
         vm.selectedMenus = vm.event.eventMenuObjects;
@@ -33,16 +34,21 @@
             })
 
         vm.selectMenu = function() {
-            dashboardFactory.createEventMenuObject(
-                parseInt(vm.menuId), 
-                parseInt(vm.quantity));
+            var menu = JSON.parse(vm.menu)
+            var qty = parseInt(vm.quantity); 
+            var costpp = parseInt(menu.costPerPerson);
+            var cost = dashboardFactory.calculateFoodCost(qty, costpp);
+            totalFoodCost += cost;
+            dashboardFactory.createEventMenuObject( parseInt(menu.id), qty);
         }
 
         vm.setBarTab = function() {
             dashboardFactory.eventObject.barTab = vm.barTab;
-            console.log("With bartab",dashboardFactory.eventObject)
+            dashboardFactory.eventObject.cost = totalFoodCost || 0;
+            dashboardFactory.eventObject.cost += vm.barTab || 0;
+            console.log("With bartab",dashboardFactory.eventObject);
             dashboardFactory.nextPage();
-        }
+        };
 
 
 

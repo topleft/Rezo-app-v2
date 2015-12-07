@@ -7,8 +7,8 @@
       
       <md-input-container flex>
         <label>Menu</label>
-        <md-select ng-model="vm.menuId">
-          <md-option ng-repeat="menu in vm.menus" value="{{menu.id}}">{{menu.name}}, ${{menu.costPerPerson}} per person</md-option>
+        <md-select ng-model="vm.menu">
+          <md-option ng-repeat="menu in vm.menus" value="{{menu}}">{{menu.name}}, ${{menu.costPerPerson}} per person</md-option>
         </md-select>
       </md-input-container>
 

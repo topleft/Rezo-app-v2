@@ -13,17 +13,19 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
         time: null,
         totalGuests: null,
         specialRequests: null,
-        barTab: null
+        barTab: null,
+        cost: null,
       };
       service.eventObject.eventMenuObjects = [];
       service.user = {}
       service.user.current = JSON.parse($window.localStorage.currentUser);
 
-      service.createEventMenuObject = function(MenuId, quantity) {
+      service.createEventMenuObject = function(MenuId, quantity, cost) {
         var eventMenuObject = {
           EventId: null, 
           MenuId: MenuId,
-          quantity: quantity
+          quantity: quantity,
+          foodCost: cost
         };
         service.eventObject.eventMenuObjects.push(eventMenuObject);
       };
@@ -33,6 +35,11 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
           item.EventId = id;
         });
       };
+
+
+      service.calculateFoodCost = function (quantity, costPerPerson) {
+        return (quantity * costPerPerson);
+      }
 
 
       service.getMenusForSpace = function () {
@@ -56,7 +63,10 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       };
 
       service.submitEvent = function () {
-        $http.post('/create/event', this.eventObject);
+        $http.post('/event/create', this.eventObject)
+        .success(function(event){
+          console.log("New Event:",event);
+        });
         // add in .success submit eventMenus
       };
 

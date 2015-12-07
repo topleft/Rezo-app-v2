@@ -1,22 +1,48 @@
 <md-content class="md-padding" layout="column" >
-    <div layout="row">
-      <md-input-container style="margin-right: 10px;">
-        <label>Size</label>
-        <md-select ng-model="size">
-          <md-option ng-repeat="size in sizes" value="{{size}}">{{size}}</md-option>
-        </md-select>
-      </md-input-container>
-      <md-input-container>
-        <label>Topping</label>
-        <md-select ng-model="topping">
-          <md-optgroup label="Meats">
-            <md-option ng-value="topping.name" ng-repeat="topping in toppings | filter: {category: 'meat' }">{{topping.name}}</md-option>
-          </md-optgroup>
-          <md-optgroup label="Veggies">
-            <md-option ng-value="topping.name" ng-repeat="topping in toppings | filter: {category: 'veg' }">{{topping.name}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
+<div layout="row" flex>
+<md-card flex="65" layout-align="start">
+      <div layout="row">
+        <div layout="column" flex="65">
+          <img flex layout="row" layout-padding ng-src="http://static1.squarespace.com/static/54e0f431e4b043f1c99a55d0/t/55b6be69e4b0e4916f65839e/1438039658902/?format=300w" class="md-card-image" alt="Washed Out">
+        </div>
+        <div layout="column" flex>
+          <md-card-title layout-align="center center" layout-padding>
+            <md-card-title-text>
+              <span class="md-headline">Event Title</span>
+            </md-card-title-text>
+          </md-card-title>
+          <div layout-margin>
+            <div layout="row" layout-align="start center">
+              <i class="material-icons md-18">date_range</i>
+              <span layout-padding>{{vm.event.date}}</span>
+            </div>
+            <div layout="row" layout-align="start center">
+              <i class="material-icons md-18">access_time</i>
+              <span layout-padding>{{vm.event.time}}</span>
+            </div>
+            <div layout="row" layout-align="start center">
+              <i class="material-icons md-18">people</i>
+              <span layout-padding>{{vm.event.totalGuests}}</span>
+            </div>
+            <div layout="row" layout-align="start center">
+              <i class="material-icons md-18">attach_money</i>
+              <span layout-padding>{{vm.event.cost}}</span>
+            </div>
+          </div>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button>Action 1</md-button>
+            <md-button>Action 2</md-button>
+          </md-card-actions>
+        </div>
+      </div>
+      </md-card>
+    <md-button flex class="md-raised" ng-click="vm.confirmDetails()">Book Event</md-button>
+</div>
+    <div layout="column">
+      <span>Selected Menus</span>
+      <span  ng-repeat="menu in vm.selectedMenus">{{menu}}</span>
     </div>
+
+
 
 </md-content>
