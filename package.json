@@ -40,6 +40,6 @@
     "run-sequence": "^1.1.4"
   },
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "postinstall": "bower install"
   }
 }
