@@ -23,6 +23,15 @@ Side Bar Form Navigation - 3 hrs
 googleclientid heroku
 816554237691-5fhpjev32egi9lp6kgqr169tc9eoov45.apps.googleusercontent.com
 
+twilio test id
+AC1ea28f94a2f50224cae22ce7e54b9896
+twilio test secret
+6927eb9fc0ed7f12aae37aef892a4adb
+
+twilio live id
+ACd5f45830c9c4eabc03c7fe092f8e548e
+twilio live secret
+1be184e51bc7074df58961339f431d28
 
 [flow chart](https://www.lucidchart.com/documents/edit/8e01f617-2b57-4112-be6f-342c6eba27f0)
 

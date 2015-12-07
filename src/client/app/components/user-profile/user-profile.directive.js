@@ -25,7 +25,7 @@
 
 
         vm.updateProfile = function () {
-            dashboardFactory.user = vm.user
+            dashboardFactory.updateUser(vm.user.current.phoneNumber, vm.user.current.email, vm.user.current.companyName);
             dashboardFactory.nextPage();
         }
 

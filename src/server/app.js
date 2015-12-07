@@ -11,9 +11,11 @@ var swig = require('swig');
 // *** routes *** //
 var routes = require('./routes/index.js');
 var authRoutes = require('./routes/auth.js');
+var userRoutes = require('./routes/user-routes.js');
 var menuRoutes = require('./routes/menu-routes.js');
 var spaceRoutes = require('./routes/space-routes.js');
 var eventRoutes = require('./routes/event-routes.js');
+var twilioRoutes = require('./routes/twilio-routes.js');
 
 
 // *** express instance *** //
@@ -34,9 +36,11 @@ app.get('/', function(req, res, next) {
 
 app.use('/', routes);
 app.use('/auth', authRoutes);
+app.use('/', userRoutes);
 app.use('/', menuRoutes);
 app.use('/', spaceRoutes);
 app.use('/', eventRoutes);
+app.use('/', twilioRoutes);
 
 
 // catch 404 and forward to error handler
