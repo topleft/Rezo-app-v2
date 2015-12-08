@@ -21,11 +21,11 @@
     function rezoConfirmationController(dashboardFactory) {
         var vm = this;
         var event = dashboardFactory.bookedEvent;
+        var space = dashboardFactory.space.current 
 
         if (event.id) {
-            vm.event = event;
-            console.log(typeof event)
             vm.message = "Success! Event booked."
+            vm.details = space.name+" is super excited to host you! They will be in contact with you shortly to confirm your booking.";
         } else {
             vm.message = "Error. Event was not booked."
             vm.error = "There was a problem booking your event. :("

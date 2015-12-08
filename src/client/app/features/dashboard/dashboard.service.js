@@ -20,8 +20,14 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       service.space.menus = [];
       service.eventObject.eventMenuObjects = [];
       service.user = {};
-      service.user.current = JSON.parse($window.localStorage.currentUser);
       service.bookedEvent = null;
+      setCurrentUser()
+
+      function setCurrentUser () {
+        if ($window.localStorage.currentUser) {
+          service.user.current = JSON.parse($window.localStorage.currentUser);
+        };
+      }
 
       service.setCurrentSpace = function (spaceId) {
         $http.get('/space/'+spaceId)

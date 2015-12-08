@@ -1,20 +1,24 @@
 ### Rezo App
 
-Display Available/Selected Menus with picture -  3 hrs 
-  * update menu table with 'pictureUrl' column
-  * use grid list with material 
+Home Page
+Success Page
+Login Page?? just make it exist in the button
 
 Dynamically Load Spaces - 4 hrs
   * update space table with 'pictureUrl' column
   * grid list on selection page
 
+Blockout days on Calendar
+  * feed calendar an array of block out dates
+  * add to blocked out dates with booking
+
+Add special request box to profile page
+
 Overall Styling - 3 hrs
   * font 
   * colors
 
-Side Bar Form Navigation - 3 hrs
-  * highlight current form section
-  * disable not yet seen sections
+
 
 
 googleclientid heroku

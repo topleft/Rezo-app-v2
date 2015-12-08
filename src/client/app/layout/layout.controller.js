@@ -6,12 +6,11 @@
         .controller('layoutController', layoutController);
 
 
-    layoutController.$inject = ['$scope', '$mdSidenav', '$timeout', '$log', '$mdUtil', '$location', '$auth', 'dashboardFactory'];
+    layoutController.$inject = ['$scope', '$mdSidenav', '$timeout', '$log', '$mdUtil', '$location', '$auth', 'dashboardFactory', '$rootScope'];
 
-    function layoutController ($scope, $mdSidenav, $timeout, $log, $mdUtil, $location, $auth, dashboardFactory) {
+    function layoutController ($scope, $mdSidenav, $timeout, $log, $mdUtil, $location, $auth, dashboardFactory, $rootScope) {      
 
-      console.log("in layout",dashboardFactory.page.current)
-
+      $scope.currentUser = $rootScope.currentUser;
       $scope.page = {}
       $scope.page = dashboardFactory.page;
 
