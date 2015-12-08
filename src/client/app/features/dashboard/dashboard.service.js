@@ -17,8 +17,9 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       };
       service.space = {};
       service.space.current = null;
+      service.space.menus = [];
       service.eventObject.eventMenuObjects = [];
-      service.user = {}
+      service.user = {};
       service.user.current = JSON.parse($window.localStorage.currentUser);
       service.bookedEvent = null;
 
@@ -26,7 +27,6 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
         $http.get('/space/'+spaceId)
         .success(function(space){
           service.space.current = space;
-          console.log("Space:", service.space.current )
         })
       }
 
@@ -54,7 +54,6 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
           companyName: companyName
         }).success(function(user){
           service.user.current = user;
-          console.log("Current User", user)
         })
       }
 
@@ -66,13 +65,15 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
 
       service.getMenusForSpace = function () {
         var SpaceId = this.eventObject.SpaceId;
-        return $http.get('menus/space/'+SpaceId);
+        $http.get('menus/space/'+SpaceId)
+        .success(function (menus) {
+          service.space.menus = menus;
+        });
       }
 
       service.nextPage = function() {
         service.page.current++;
         return service.page.current;
-        console.log(service.page.current);
       }     
 
       service.prevPage = function() {
@@ -83,6 +84,12 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       service.getPage = function() {
         return service.page.current;
       };
+
+      service.getSelectedMenusAndQuantity = function () {
+        service.eventObject.eventMenuObjects.forEach( function(item) {
+          item.MenuId
+        })
+      }
 
       service.submitEvent = function () {
         $http.post('/event/create', this.eventObject)

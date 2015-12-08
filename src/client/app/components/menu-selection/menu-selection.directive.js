@@ -9,7 +9,7 @@
         return {
             restrict: 'E', 
             templateUrl: 'src/client/app/components/menu-selection/menu-selection.html',
-            scope: {},
+            scope: { },
             controller: menuSelectionController,
             controllerAs: 'vm',
             bindToController: true
@@ -25,17 +25,9 @@
 
         vm.event = dashboardFactory.eventObject;
         vm.selectedMenus = vm.event.eventMenuObjects;
-        console.log("length: ", vm.selectedMenus.length)
+        vm.menus = dashboardFactory.space.menus;
 
-        dashboardFactory.getMenusForSpace()
-            .success(function (menus) {
-                vm.menus = menus;
-                console.log(vm.menus)
-            })
-
-        vm.selectMenu = function() {
-            var menu = JSON.parse(vm.menu)
-            var qty = parseInt(vm.quantity); 
+        vm.selectMenu = function(menu, qty) {
             var costpp = parseInt(menu.costPerPerson);
             var cost = dashboardFactory.calculateFoodCost(qty, costpp);
             totalFoodCost += cost;

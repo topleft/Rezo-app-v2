@@ -20,6 +20,9 @@ module.exports = {
       costPerPerson: { 
         type:Sequelize.FLOAT,
         required: true
+      }, 
+      imageUrl: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

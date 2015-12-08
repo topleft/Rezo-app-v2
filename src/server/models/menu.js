@@ -13,6 +13,9 @@ module.exports = function(sequelize, DataTypes) {
     costPerPerson: { 
       type:DataTypes.FLOAT,
       required: true
+    },
+    imageUrl: {
+        type: DataTypes.STRING,
     }
   }, {
     classMethods: {

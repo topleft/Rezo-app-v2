@@ -1,6 +1,6 @@
-<md-content class="md-padding" layout="column" >
-<div layout="row" flex>
-<md-card flex="65" layout-align="start">
+<md-content class="md-padding" layout="column" flex>
+  <div layout="row" flex>
+    <md-card flex="65" layout-align="start">
       <div layout="row">
         <div layout="column" flex="65">
           <img flex layout="row" layout-padding ng-src="http://static1.squarespace.com/static/54e0f431e4b043f1c99a55d0/t/55b6be69e4b0e4916f65839e/1438039658902/?format=300w" class="md-card-image" alt="Washed Out">
@@ -30,19 +30,31 @@
             </div>
           </div>
           <md-card-actions layout="row" layout-align="end center">
-            <md-button>Action 1</md-button>
-            <md-button>Action 2</md-button>
+          <md-button flex class="md-raised md-primary" ng-click="vm.confirmDetails()">Book Event</md-button>
           </md-card-actions>
         </div>
       </div>
       </md-card>
-    <md-button flex class="md-raised" ng-click="vm.confirmDetails()">Book Event</md-button>
-</div>
-    <div layout="column">
-      <span>Selected Menus</span>
-      <span  ng-repeat="menu in vm.selectedMenus">{{menu}}</span>
     </div>
-
-
-
+    
+    <div layout="row" flex="65">
+      <div class="parent" layout="column" ng-repeat="menu in vm.displayMenus" flex="30">
+        <md-content class="md-padding" layout="row" layout-wrap layout-align="center start">
+          <div flex layout="column">
+            <md-card>
+              <img ng-src="{{menu.imageUrl}}" class="md-card-image" alt="{{menu.name}}">
+              <md-card-title>
+                <md-card-title-text class="md-padding">
+                <span layout-align="center" class="md-headline">{{menu.name}}</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+              <div>
+                <p>Quantity: {{menu.qty}}</p>
+              </div>
+            </md-input-container>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
 </md-content>
