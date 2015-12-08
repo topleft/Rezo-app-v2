@@ -14,7 +14,7 @@
       $scope.page = {}
 
       $scope.page = dashboardFactory.page;
-      console.log($scope.page)
+      $scope.space = dashboardFactory.space;
 
       $scope.nextPage = function () {
         dashboardFactory.nextPage();

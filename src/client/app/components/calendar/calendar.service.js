@@ -99,11 +99,13 @@ angular.module("app.components.calendar").service("CalendarData", [function () {
         this.data = {};
         this.data.activeDate = null;
         this.data.disabled = [];
+        
 
         this.setDisabled = function(date) {
             this.data.disabled.push(date);
         };        
 
+        
         this.removeDisabled = function(date) {
             var i = this.data.disabled.indexOf(date);
             this.data.disabled.splice(i, 1);
@@ -114,10 +116,11 @@ angular.module("app.components.calendar").service("CalendarData", [function () {
         };
 
         this.isDisabled = function (date) {
-            if ( this.data.disabled.indexOf(date) !== -1) {
-                return true;
-            }
-            return false;
+            var x = false;
+            this.data.disabled.forEach(function(disabled){
+                if(Date.parse(disabled)  === Date.parse(date)) { x = true; }
+            });
+            return x;
         };
 
         this.setActiveDate = function(date) {

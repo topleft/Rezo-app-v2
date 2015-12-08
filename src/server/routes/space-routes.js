@@ -59,6 +59,17 @@ router.get('/space/:spaceId', function(req, res) {
     });
 });
 
+router.get('/space/:spaceId/events', function(req, res) {
+    models.Event.findAll({
+        where: {
+            SpaceId: req.params.spaceId 
+        }
+    }).then(function(events){
+        res.json(events);
+    }).catch(function(err){
+        res.json(err);
+    });
+});
 
 router.delete('/space/delete/:spaceId', function(req, res) {
     models.Space.destroy({
@@ -71,6 +82,8 @@ router.delete('/space/delete/:spaceId', function(req, res) {
         res.json(err);
     });
 });
+
+
 
 
 

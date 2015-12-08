@@ -20,13 +20,34 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       service.space.menus = [];
       service.eventObject.eventMenuObjects = [];
       service.user = {};
-      service.user.current = JSON.parse($window.localStorage.currentUser);
       service.bookedEvent = null;
+      setCurrentUser()
+      service.space.bookedDates = [];
+      // getBookedDatesForSpace(1);
+
+      function setCurrentUser () {
+        if ($window.localStorage.currentUser) {
+          service.user.current = JSON.parse($window.localStorage.currentUser);
+        };
+      }
 
       service.setCurrentSpace = function (spaceId) {
         $http.get('/space/'+spaceId)
         .success(function(space){
           service.space.current = space;
+          getBookedDatesForSpace(spaceId);
+        })
+      }
+
+      function getBookedDatesForSpace (spaceId) {
+        $http.get('space/'+spaceId+'/events')
+        .success(function (events) {
+          if(events.length > 0) {
+            service.space.bookedDates = [];
+            events.forEach(function(event){
+              service.space.bookedDates.push(event.date);
+            });
+          }
         })
       }
 
@@ -43,8 +64,20 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       service.updateEventMenuEventId = function(EventId) {
         this.menuEventObjects.forEach(function(item){
           item.EventId = id;
+          submitEventMenu(item.EventId, item.MenuId, item.qty)
         });
       };
+
+      function submitEventMenu(EventId, MenuId, qty ){
+        $http.post('/eventmenu/create', {
+          EventId: EventId, 
+          MenuId: MenuId, 
+          qty: qty
+        }).success(function(result) {
+          console.log(result);
+        })
+
+      }
 
       service.updateUser = function (phoneNumber, email, companyName) {
         if (!companyName) {companyName = null}

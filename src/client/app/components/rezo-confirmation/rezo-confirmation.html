@@ -1,5 +1,27 @@
 <md-content class="md-padding" layout="column" >
 <h1>Success! Event Booked.</h1>
-<p>{{vm.event}}</p>
 <p>{{vm.error}}</p>
+</md-content>
+
+<md-content class="md-padding" layout="column" flex>
+  <div layout="row" flex>
+    <md-card flex="65" layout-align="start">
+      <div layout="row">
+        <div layout="column" flex="65">
+          <img flex layout="row" layout-padding ng-src="http://static1.squarespace.com/static/54e0f431e4b043f1c99a55d0/t/55b6be69e4b0e4916f65839e/1438039658902/?format=300w" class="md-card-image" alt="Washed Out" href="http://www.commonwealthpubs.com/visit-1-2">
+        </div>
+        <div layout="column" flex>
+          <md-card-title layout-align="center center" layout-padding>
+            <md-card-title-text>
+              <span class="md-headline">Nice Job!</span>
+            </md-card-title-text>
+          </md-card-title>
+          <div layout-margin>
+            <div layout="row" layout-align="start center">
+              <p class="md-title">{{vm.details}}</p>
+            </div>
+        </div>
+      </div>
+      </md-card>
+    </div>
 </md-content>

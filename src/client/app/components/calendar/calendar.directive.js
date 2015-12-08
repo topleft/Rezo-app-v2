@@ -287,21 +287,32 @@ angular.module("app.components.calendar").directive("calendarMd", ["$compile", "
 
     function calendarController ($scope, CalendarData, Calendar, $rootScope, dashboardFactory) {
 
-      var dataService = CalendarData;
+      var dataService = CalendarData;      
+      var data = dataService.data;
+      var now = new Date(2015, 11, 08);
+      bookedDates = dashboardFactory.space.bookedDates;      
+      console.log("in calendar",dashboardFactory.bookedDates)
+      
+      if (bookedDates.length) {
+        setDisabled(bookedDates);
+      }
 
+      function setDisabled (arr) {
+        arr.forEach(function (date) {
+            dataService.setDisabled(date)
+        })
+      }
       
-      // var date = dataService.data;
-      
-      // $scope.toggleDisabled = function (date) {
-      //   var date =  date || dataService.getActiveDate();
-      //   var disabledList = dataService.getDisabled();
-      //   if (disabledList.indexOf(date) !== -1) {
-      //     dataService.removeDisabled(date);
-      //   }
-      //   else {
-      //     dataService.setDisabled(date);
-      //   }
-      // }
+      $scope.toggleDisabled = function (date) {
+        var date =  date || dataService.getActiveDate();
+        var disabledList = dataService.getDisabled();
+        if (disabledList.indexOf(date) !== -1) {
+          dataService.removeDisabled(date);
+        }
+        else {
+          dataService.setDisabled(date);
+        }
+      }
 
       $scope.setDate = function (content) {
         var activeDate = dataSevice.getActiveDate();

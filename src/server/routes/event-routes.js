@@ -61,6 +61,19 @@ router.get('/event/:eventId', function(req, res) {
 });
 
 
+router.get('/events/:spaceId', function(req, res) {
+  console.log(req.params)
+    models.Event.findAll({
+        where: {
+            id: req.params.spaceId
+        }
+    }).then(function(result){
+        res.json(result);        
+    }).catch(function (err) {
+        res.json(err);
+    });
+});
+
 router.delete('/event/delete/:eventId', function(req, res) {
     models.Event.destroy({
         where: {
