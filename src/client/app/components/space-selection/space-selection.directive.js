@@ -22,13 +22,11 @@
         var vm = this;
 
         vm.selectSpace = function () {
-            console.log("select")
             var user = JSON.parse($window.localStorage.currentUser);
+            dashboardFactory.setCurrentSpace(1);
             dashboardFactory.eventObject.SpaceId = 1;
             dashboardFactory.eventObject.UserId = user.id;
-            dashboardFactory.setCurrentSpace(1);
             dashboardFactory.getMenusForSpace();
-
             dashboardFactory.nextPage();
         }   
 

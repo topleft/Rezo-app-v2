@@ -3,7 +3,7 @@
   <div ng-if="page.current === 1" layout="row" layout-align="center center">
   </div>
   
-  <div layout='column' ng-if="page.current === 2" flex class="full-height">
+  <div layout='column' ng-if="space.bookedDates.length > 0 && page.current === 2" flex class="full-height">
     <div layout="row" layout-align="center center" layout-margin>
       <span class="md-headline">Schedule</span>
     </div>

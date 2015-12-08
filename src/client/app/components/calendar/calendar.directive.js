@@ -287,13 +287,15 @@ angular.module("app.components.calendar").directive("calendarMd", ["$compile", "
 
     function calendarController ($scope, CalendarData, Calendar, $rootScope, dashboardFactory) {
 
-      var dataService = CalendarData;
-
-      
+      var dataService = CalendarData;      
       var data = dataService.data;
-      var now = new Date(2015, 11, 08)
-      console.log("Now",now)
-      setDisabled([now]);
+      var now = new Date(2015, 11, 08);
+      bookedDates = dashboardFactory.space.bookedDates;      
+      console.log("in calendar",dashboardFactory.bookedDates)
+      
+      if (bookedDates.length) {
+        setDisabled(bookedDates);
+      }
 
       function setDisabled (arr) {
         arr.forEach(function (date) {

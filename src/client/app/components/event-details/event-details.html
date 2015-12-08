@@ -1,8 +1,8 @@
 <md-content class="md-padding" layout="column" flex>
   <div layout="row" flex>
-    <md-card flex="65" layout-align="start">
+    <md-card flex="80" layout-align="start">
       <div layout="row">
-        <div layout="column" flex="65">
+        <div  class="md-card-image" layout="column" flex="65">
           <img flex layout="row" layout-padding ng-src="http://static1.squarespace.com/static/54e0f431e4b043f1c99a55d0/t/55b6be69e4b0e4916f65839e/1438039658902/?format=300w" class="md-card-image" alt="Washed Out">
         </div>
         <div layout="column" flex>
@@ -14,19 +14,27 @@
           <div layout-margin>
             <div layout="row" layout-align="start center">
               <i class="material-icons md-18">date_range</i>
-              <span layout-padding>{{vm.event.date}}</span>
+              <span class='md-body-2' layout-padding>{{vm.event.date | date: 'EEEE, MMMM d, y'}}</span>
             </div>
+            <md-divider></md-divider>
             <div layout="row" layout-align="start center">
               <i class="material-icons md-18">access_time</i>
-              <span layout-padding>{{vm.event.time}}</span>
+              <span class='md-body-2' layout-padding>{{vm.event.time}}</span>
             </div>
+            <md-divider></md-divider>            
             <div layout="row" layout-align="start center">
               <i class="material-icons md-18">people</i>
-              <span layout-padding>{{vm.event.totalGuests}}</span>
+              <span class='md-body-2' layout-padding>{{vm.event.totalGuests}}</span>
             </div>
+            <md-divider></md-divider>            
+            <div layout="row" layout-align="start center">
+              <i class="material-icons md-18">local_drink</i>
+              <span class='md-body-2' layout-padding>${{vm.event.barTab}} bar tab</span>
+            </div>            
+            <md-divider></md-divider>            
             <div layout="row" layout-align="start center">
               <i class="material-icons md-18">attach_money</i>
-              <span layout-padding>{{vm.event.cost}}</span>
+              <span class='md-body-2' layout-padding>${{vm.event.cost}} total</span>
             </div>
           </div>
           <md-card-actions layout="row" layout-align="end center">

@@ -16,6 +16,7 @@ var menuRoutes = require('./routes/menu-routes.js');
 var spaceRoutes = require('./routes/space-routes.js');
 var eventRoutes = require('./routes/event-routes.js');
 var twilioRoutes = require('./routes/twilio-routes.js');
+var eventMenuRoutes = require('./routes/eventMenu-routes.js');
 
 
 // *** express instance *** //
@@ -41,6 +42,7 @@ app.use('/', menuRoutes);
 app.use('/', spaceRoutes);
 app.use('/', eventRoutes);
 app.use('/', twilioRoutes);
+app.use('/', eventMenuRoutes);
 
 
 // catch 404 and forward to error handler

@@ -118,7 +118,7 @@ angular.module("app.components.calendar").service("CalendarData", [function () {
         this.isDisabled = function (date) {
             var x = false;
             this.data.disabled.forEach(function(disabled){
-                if( disabled.getTime()  === date.getTime()) { x = true; }
+                if(Date.parse(disabled)  === Date.parse(date)) { x = true; }
             });
             return x;
         };
