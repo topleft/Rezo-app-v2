@@ -23,7 +23,22 @@
         vm.user = dashboardFactory.user.current
         vm.space = dashboardFactory.space.current
         vm.event = dashboardFactory.eventObject
+        vm.menus = dashboardFactory.space.menus;
         vm.selectedMenus = vm.event.eventMenuObjects;
+        vm.displayMenus = [];
+        displayMenus();
+        
+        function displayMenus () {
+            vm.menus.forEach(function(menu){
+                return vm.selectedMenus.forEach(function(selected){
+                    if (menu.id === selected.MenuId) {
+                        menu.qty = selected.quantity;
+                        console.log(menu)
+                        vm.displayMenus.push(menu);
+                    }
+                })
+            })
+        }
 
         vm.confirmDetails = function () {
             var userPhone = vm.user.phoneNumber; 

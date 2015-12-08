@@ -25,20 +25,13 @@
 
         vm.event = dashboardFactory.eventObject;
         vm.selectedMenus = vm.event.eventMenuObjects;
-        console.log("length: ", vm.selectedMenus.length)
-
-        dashboardFactory.getMenusForSpace()
-            .success(function (menus) {
-                vm.menus = menus;
-                console.log(vm.menus)
-            })
+        vm.menus = dashboardFactory.space.menus;
 
         vm.selectMenu = function(menu, qty) {
             var costpp = parseInt(menu.costPerPerson);
             var cost = dashboardFactory.calculateFoodCost(qty, costpp);
             totalFoodCost += cost;
             dashboardFactory.createEventMenuObject( parseInt(menu.id), qty);
-            console.log(dashboardFactory.eventObject.eventMenuObjects)
         }
 
         vm.setBarTab = function() {
