@@ -6,9 +6,18 @@
         .controller('layoutController', layoutController);
 
 
-    layoutController.$inject = ['$scope', '$mdSidenav', '$timeout', '$log', '$mdUtil', '$location', '$auth'];
+    layoutController.$inject = ['$scope', '$mdSidenav', '$timeout', '$log', '$mdUtil', '$location', '$auth', 'dashboardFactory'];
 
-    function layoutController ($scope, $mdSidenav, $timeout, $log, $mdUtil, $location, $auth) {
+    function layoutController ($scope, $mdSidenav, $timeout, $log, $mdUtil, $location, $auth, dashboardFactory) {
+
+      console.log("in layout",dashboardFactory.page.current)
+
+      $scope.page = {}
+      $scope.page = dashboardFactory.page;
+
+      $scope.setPage = function (pageNumber) {
+        $scope.page.current = pageNumber;
+      };
       
       $scope.close = function () {
         $mdSidenav('left').toggle()
