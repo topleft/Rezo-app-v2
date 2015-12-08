@@ -52,8 +52,8 @@
             // next page called in dashBoard for async reasons                
             
             // ** uncomment for production **//
-            // dashboardFactory.sendText(userPhone, userMsg)
-            // dashboardFactory.sendText(spacePhone, spaceMsg)
+            dashboardFactory.sendText(userPhone, userMsg)
+            dashboardFactory.sendText(spacePhone, spaceMsg)
         };
 
     }
