@@ -31,17 +31,49 @@
           </md-toolbar>
         
           <md-list>
-            <md-list-item class="md-clickable" >
-             <p md-ink-ripple ui-sref="dashboard">Dashboard</p>
+            <md-list-item class="md-clickable" ng-class="{selected: page.current === 1}">
+             <p md-ink-ripple ng-click="setPage(1)">
+              <i layout-margin class="material-icons">store</i>
+              <span layout-margin>Space</span>
+             </p>
             </md-list-item>
             <md-divider></md-divider>
-            <md-list-item class="md-clickable" >
-             <p md-ink-ripple ui-sref="profile">Profile</p>
+            <md-list-item class="md-clickable" ng-class="{selected: page.current === 2}">
+             <p md-ink-ripple ng-click="setPage(2)">
+              <i layout-margin class="material-icons">today</i>
+              <span layout-margin>Calendar</span>
+             </p>
             </md-list-item>
             <md-divider></md-divider>
-            <md-list-item class="md-clickable" >
-             <p md-ink-ripple ui-sref="calendar">Calendar</p>
+            <md-list-item class="md-clickable" ng-class="{selected: page.current === 3}">
+             <p md-ink-ripple ng-click="setPage(3)">
+              <i layout-margin class="material-icons">local_dining</i>
+              <span layout-margin>Food & Drink</span>
+             </p>
             </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-clickable" ng-class="{selected: page.current === 4}">
+             <p md-ink-ripple ng-click="setPage(4)">
+              <i layout-margin class="material-icons">person</i>
+              <span layout-margin>Profile</span>
+             </p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-clickable" ng-class="{selected: page.current === 5}">
+             <p md-ink-ripple ng-click="setPage(5)">
+              <i layout-margin class="material-icons">playlist_add_check</i>
+              <span layout-margin>Details</span>
+             </p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-clickable" ng-class="{success: page.current === 6}">
+             <p md-ink-ripple ng-click="setPage(6)">
+              <i layout-margin class="material-icons">done_all</i>
+              <span layout-margin>Confirmation</span>
+             </p>
+            </md-list-item>
+            <md-divider></md-divider>
+            
             
           </md-list>
         </md-sidenav>

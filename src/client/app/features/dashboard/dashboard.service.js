@@ -85,6 +85,12 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
         return service.page.current;
       };
 
+      service.setPage = function(num) {
+        return service.page = num;
+      };
+
+
+
       service.getSelectedMenusAndQuantity = function () {
         service.eventObject.eventMenuObjects.forEach( function(item) {
           item.MenuId

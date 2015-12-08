@@ -5,7 +5,7 @@
       'app.core',
       'app.features',
       'app.components',
-      'app.layout'
+      'app.layout',
     ])
 
     app.config(function ($mdThemingProvider) {

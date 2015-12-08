@@ -9,4 +9,12 @@
   height: 100%;
 }
 
+.selected {
+  background-color: #eee;
+}
+
+.success {
+  background-color: #a7f1a7;
+}
+
 
