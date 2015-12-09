@@ -37,7 +37,7 @@ var dinnerMenu;
                           foodItems: ['Bangers & Mash', 'Scotch Egg', 'Grapefruit Fennel Salad', 'Bread Pudding'],
                           costPerPerson: 22.00,
                           SpaceId: TwistedPine.id,
-                          imageUrl: 'http://static1.squarespace.com/static/54e0f431e4b043f1c99a55d0/54f36b8ee4b05fe3d5e421f1/54f36ea3e4b02d9040e03b95/1427935340471/vjccw4.jpg?format=1000w'
+                          imageUrl: 'http://www.taste.com.au/images/recipes/agt/2009/04/22212_l.jpg'
                       }).then(function(menu){
                           lunchMenu = menu.dataValues;
                           console.log('_____________________________________________________________');
