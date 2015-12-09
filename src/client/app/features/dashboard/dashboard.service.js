@@ -18,17 +18,26 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       service.space = {};
       service.space.current = null;
       service.space.menus = [];
+      service.spaces = {};
+      getSpaces();
       service.eventObject.eventMenuObjects = [];
       service.user = {};
       service.bookedEvent = null;
       setCurrentUser()
       service.space.bookedDates = [];
-      // getBookedDatesForSpace(1);
+
 
       function setCurrentUser () {
         if ($window.localStorage.currentUser) {
           service.user.current = JSON.parse($window.localStorage.currentUser);
         };
+      }
+
+      function getSpaces () {
+        $http.get('/spaces')
+        .success(function(spaces){
+          service.spaces.spaces = spaces;
+        })
       }
 
       service.setCurrentSpace = function (spaceId) {
