@@ -6,9 +6,13 @@
         .controller('homeController', homeController);
 
 
-    homeController.$inject = ['$scope'];
+    homeController.$inject = ['$scope', "dashboardFactory"];
 
-    function homeController ($scope) {
+    function homeController ($scope, dashboardFactory) {
+
+      $scope.nextPage = function () {
+        dashboardFactory.setPage(1);
+      }
 
     }
 })();

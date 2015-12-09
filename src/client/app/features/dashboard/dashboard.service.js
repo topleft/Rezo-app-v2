@@ -4,7 +4,7 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
 
       var service = {};
       service.page = {};
-      service.page.current = 1;
+      service.page.current = 0;
       service.eventObject = {
         UserId: null,
         SpaceId: null,
@@ -128,7 +128,7 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       };
 
       service.setPage = function(num) {
-        return service.page = num;
+        return service.page.current = num;
       };
 
 
@@ -144,7 +144,7 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
         .success(function(event){
           service.bookedEvent = event;
           console.log("New Event:",service.bookedEvent);
-          service.sendText()
+          service.sendText();
           service.nextPage();
           });
         // add in .success submit eventMenus

@@ -40,3 +40,15 @@
   overflow: hidden;
   /*margin: 20px;*/
 }
+
+#rezo-logo {
+  font-size: 200px;
+}
+
+.home-logo i{
+  font-size: 180px;
+}
+
+.grey {
+  color: #bbb;
+}

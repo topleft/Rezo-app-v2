@@ -6,9 +6,9 @@
         .controller('layoutController', layoutController);
 
 
-    layoutController.$inject = ['$scope', '$mdSidenav', '$timeout', '$log', '$mdUtil', '$location', '$auth', 'dashboardFactory', '$rootScope'];
+    layoutController.$inject = ['$scope', '$mdSidenav', '$timeout', '$log', '$mdUtil', '$location', '$auth', 'dashboardFactory', '$rootScope', '$window'];
 
-    function layoutController ($scope, $mdSidenav, $timeout, $log, $mdUtil, $location, $auth, dashboardFactory, $rootScope) {      
+    function layoutController ($scope, $mdSidenav, $timeout, $log, $mdUtil, $location, $auth, dashboardFactory, $rootScope, $window) {      
 
       $scope.currentUser = $rootScope.currentUser;
       $scope.page = {}
@@ -25,11 +25,25 @@
           });
       };
 
+      $scope.login = function(provider){
+        $auth.authenticate(provider)
+          .then(function(response) {
+            $window.localStorage.currentUser = JSON.stringify(response.data.user);
+            $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            console.log(response.data.user);
+            $location.path('/home');
+          })
+          .catch(function(response) {
+            console.log(response);
+          });
+      }
+
       $scope.logout = function(){
         if (!$auth.isAuthenticated()) { return; }
         $auth.logout()
           .then(function() {
-          $location.path('/');
+          dashboardFactory.setPage(0);
+          $location.path('/home');
         });
       };
 

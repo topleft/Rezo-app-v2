@@ -6,10 +6,10 @@
           <md-button ng-click="close()" class="md-icon-button" hide-gt-md>
             <i class="material-icons" >menu</i>
           </md-button>
-          <h2 layout-padding><a href="#/" style='text-decoration: none'>REZO</a></h2>
+          <h2 layout-padding><a ui-sref="home" style='text-decoration: none'>REZO</a></h2>
           <span flex></span>
-          <md-button ui-sref="login" class="md-raised md-accent">Login</md-button>
-          <md-button ng-click='logout()' class="md-raised md-accent md-hue-1">Logout</md-button>
+          <md-button ng-click="login('google')" class="">Login</md-button>
+          <md-button ng-click='logout()' class="">Logout</md-button>
         </div> 
       </md-toolbar>
 
