@@ -59,6 +59,15 @@ router.get('/space/:spaceId', function(req, res) {
     });
 });
 
+router.get('/spaces', function(req, res) {
+    models.Space.findAll({})
+    .then(function(spaces){
+        res.json(spaces);
+    }).catch(function(err){
+        res.json(err);
+    });
+});
+
 router.get('/space/:spaceId/events', function(req, res) {
     models.Event.findAll({
         where: {
