@@ -39,6 +39,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       required: true,
       allowNull: false 
+    },
+    logoUrl: { 
+      type: DataTypes.STRING,
+      required: true,
+      allowNull: false 
+    },
+    websiteUrl: { 
+      type: DataTypes.STRING,
+      required: true,
+      allowNull: false 
     }
   }, {
     classMethods: {

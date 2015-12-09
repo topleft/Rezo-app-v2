@@ -22,15 +22,25 @@
         var vm = this;
         vm.menus;
         var totalFoodCost = 0;
+        vm.selectToggle = []
 
         vm.event = dashboardFactory.eventObject;
         vm.selectedMenus = vm.event.eventMenuObjects;
         vm.menus = dashboardFactory.space.menus;
 
+        vm.menuSelected = function (id){
+            if (vm.selectToggle.indexOf(id) === -1){
+                return false
+            } else {
+                return true;
+            }
+        }
+
         vm.selectMenu = function(menu, qty) {
             var costpp = parseInt(menu.costPerPerson);
             var cost = dashboardFactory.calculateFoodCost(qty, costpp);
             totalFoodCost += cost;
+            vm.selectToggle.push(menu.id);
             dashboardFactory.createEventMenuObject( parseInt(menu.id), qty);
         }
 
@@ -38,7 +48,6 @@
             dashboardFactory.eventObject.barTab = vm.barTab;
             dashboardFactory.eventObject.cost = totalFoodCost || 0;
             dashboardFactory.eventObject.cost += vm.barTab || 0;
-            console.log("With bartab",dashboardFactory.eventObject);
             dashboardFactory.nextPage();
         };
 

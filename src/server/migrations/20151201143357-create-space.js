@@ -47,6 +47,16 @@ module.exports = {
         required: true,
         allowNull: false 
       },
+      logoUrl: { 
+        type: Sequelize.STRING,
+        required: true,
+        allowNull: false 
+      },
+      websiteUrl: { 
+        type: Sequelize.STRING,
+        required: true,
+        allowNull: false 
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
