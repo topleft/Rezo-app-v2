@@ -6,7 +6,7 @@ angular.module('routes').config(['$stateProvider', '$urlRouterProvider', '$authP
   .google({
     url: '/auth/google',
     clientId: '816554237691-5fhpjev32egi9lp6kgqr169tc9eoov45.apps.googleusercontent.com',
-    redirectUri: 'https://rezo.herokuapp.com' //window.location.origin
+    redirectUri: 'https://rezo.herokuapp.com' // window.location.origin
   });
   
   $stateProvider
