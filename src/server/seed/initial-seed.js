@@ -49,7 +49,8 @@ var dinnerMenu;
                               imageUrl: 'http://www.lotusartichoke.com/wp-content/uploads/2012/08/mutterpaneertofu_7094w_700.jpg'
                           }).then(function(menu){
                               dinnerMenu = menu.dataValues;
-                              models.Event.create({
+                              models.Event.sync({force: true}).then(function () {
+                                models.Event.create({
                                 SpaceId: CommonWealth.id,
                                 UserId: null,
                                 date: new Date(), 
@@ -62,6 +63,7 @@ var dinnerMenu;
                               }).catch(function(err) {
                                   console.log(err);
                               });
+                            });
                           }).catch(function(err) {
                               console.log(err);
                           });
