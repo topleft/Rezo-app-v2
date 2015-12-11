@@ -40,7 +40,7 @@ angular.module('routes').config(['$stateProvider', '$urlRouterProvider', '$authP
     resolve: {loginRequired: loginRequired}
   });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/home');
 
 
   function skipIfLoggedIn($q, $auth) {
