@@ -9,10 +9,8 @@
     dashboardController.$inject = ['$scope', 'dashboardFactory'];
 
     function dashboardController ($scope, dashboardFactory) {
-      console.log("dashboard");
 
       $scope.page = {}
-
       $scope.page = dashboardFactory.page;
       $scope.space = dashboardFactory.space;
 

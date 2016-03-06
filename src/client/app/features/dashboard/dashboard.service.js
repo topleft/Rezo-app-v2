@@ -1,10 +1,8 @@
 angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "$window", function ($http, $window) {
 
-
-
       var service = {};
       service.page = {};
-      service.page.current = 0;
+      service.page.current = 1;
       service.eventObject = {
         UserId: null,
         SpaceId: null,
@@ -15,16 +13,18 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
         barTab: null,
         cost: null,
       };
+      service.eventObject.eventMenuObjects = [];
+
       service.space = {};
       service.space.current = null;
       service.space.menus = [];
+      service.space.bookedDates = [];
+
       service.spaces = {};
-      getSpaces();
-      service.eventObject.eventMenuObjects = [];
       service.user = {};
       service.bookedEvent = null;
+      getSpaces();
       setCurrentUser()
-      service.space.bookedDates = [];
 
 
       function setCurrentUser () {
@@ -62,7 +62,7 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
 
       service.createEventMenuObject = function(MenuId, quantity, cost) {
         var eventMenuObject = {
-          EventId: null, 
+          EventId: null,
           MenuId: MenuId,
           quantity: quantity,
           foodCost: cost
@@ -79,8 +79,8 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
 
       function submitEventMenu(EventId, MenuId, qty ){
         $http.post('/eventmenu/create', {
-          EventId: EventId, 
-          MenuId: MenuId, 
+          EventId: EventId,
+          MenuId: MenuId,
           qty: qty
         }).success(function(result) {
           console.log(result);
@@ -91,8 +91,8 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       service.updateUser = function (phoneNumber, email, companyName) {
         if (!companyName) {companyName = null}
         return $http.put('/user/update/'+service.user.current.id, {
-          phoneNumber: phoneNumber, 
-          email: email, 
+          phoneNumber: phoneNumber,
+          email: email,
           companyName: companyName
         }).success(function(user){
           service.user.current = user;
@@ -116,12 +116,12 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       service.nextPage = function() {
         service.page.current++;
         return service.page.current;
-      }     
+      }
 
       service.prevPage = function() {
         service.page.current--;
         return service.page.current;
-      }     
+      }
 
       service.getPage = function() {
         return service.page.current;
@@ -153,13 +153,13 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       service.sendText = function ( phoneNumber, message, imageUrl ) {
         if(imageUrl) {
           $http.post('/twilio/mms', {
-            phoneNumber: phoneNumber, 
-            message: message, 
+            phoneNumber: phoneNumber,
+            message: message,
             imageUrl: imageUrl
           })
         } else {
           $http.post('/twilio/sms', {
-            phoneNumber: phoneNumber, 
+            phoneNumber: phoneNumber,
             message: message
           });
         }
@@ -168,4 +168,3 @@ angular.module("app.features.dashboard").factory("dashboardFactory", ["$http", "
       return service;
 
 }]);
-

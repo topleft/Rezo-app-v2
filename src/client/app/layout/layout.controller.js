@@ -8,7 +8,7 @@
 
     layoutController.$inject = ['$scope', '$mdSidenav', '$timeout', '$log', '$mdUtil', '$location', '$auth', 'dashboardFactory', '$rootScope', '$window'];
 
-    function layoutController ($scope, $mdSidenav, $timeout, $log, $mdUtil, $location, $auth, dashboardFactory, $rootScope, $window) {      
+    function layoutController ($scope, $mdSidenav, $timeout, $log, $mdUtil, $location, $auth, dashboardFactory, $rootScope, $window) {
 
       $scope.currentUser = $rootScope.currentUser;
       $scope.page = {}
@@ -17,7 +17,7 @@
       $scope.setPage = function (pageNumber) {
         $scope.page.current = pageNumber;
       };
-      
+
       $scope.close = function () {
         $mdSidenav('left').toggle()
           .then(function () {

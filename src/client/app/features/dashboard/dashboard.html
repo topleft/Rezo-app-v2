@@ -1,8 +1,6 @@
 <space-selection ng-if="page.current === 1" id="space"></space-selection>
 <md-content layout="column" flex layout-padding>
-  <div ng-if="page.current === 1" layout="row" layout-align="center center">
-  </div>
-  
+
   <div layout='column' ng-if="space.bookedDates.length > 0 && page.current === 2" flex class="full-height">
     <div layout="row" layout-align="center center" layout-margin>
       <span class="md-headline">Schedule</span>
@@ -33,12 +31,12 @@
       </div>
     </div>
   </div>
-</md-content> 
+</md-content>
 
 <menu-selection ng-if="page.current === 3" id="menu"></menu-selection>
 <user-profile ng-if="page.current === 4" id="profile"></user-profile>
-<event-details ng-if="page.current=== 5" id="final"></event-details> 
-<rezo-confirmation ng-if="page.current=== 6" id="confirmation"></rezo-confirmation> 
+<event-details ng-if="page.current=== 5" id="final"></event-details>
+<rezo-confirmation ng-if="page.current=== 6" id="confirmation"></rezo-confirmation>
 
 <!-- <div layout="row" layout-align="end end">
   <md-button class="md-raised" lagout-margin ng-click="prevPage()">Prev</md-button>

@@ -10,30 +10,30 @@ angular.module('routes').config(['$stateProvider', '$urlRouterProvider', '$authP
   });
 
   $stateProvider
-  .state('login',{
+  .state('login', {
     url: '/',
     templateUrl: './src/client/app/features/login/login.html',
     controller: 'loginController',
     resolve: {skipIfLoggedIn: skipIfLoggedIn}
   })
-  .state('home',{
+  .state('home', {
     url: '/home',
     templateUrl: './src/client/app/features/home/home.html',
     controller: 'homeController',
   })
-  .state('profile',{
+  .state('profile', {
     url: '/profile',
     templateUrl: './src/client/app/features/profile/profile.html',
     controller: 'profileController',
     resolve: {loginRequired: loginRequired}
   })
-  .state('dashboard',{
+  .state('dashboard', {
     url: '/dashboard',
     templateUrl: './src/client/app/features/dashboard/dashboard.html',
     controller: 'dashboardController',
     resolve: {loginRequired: loginRequired}
   })
-  .state('calendar',{
+  .state('calendar', {
     url: '/calendar',
     templateUrl: './src/client/app/features/calendar/calendar.html',
     controller: 'calendarController',
